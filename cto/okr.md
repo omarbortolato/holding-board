@@ -4,16 +4,20 @@
 
 ---
 
-## Settimana 2026-W23 (02–06 Giu)
+## Settimana 2026-W26 (22–26 Giu)
 
-### Obiettivo: Setup holding + Completare agent-ecommerce
+### Obiettivo: Fine-tuning chatbot in PRD + strategia piattaforma herbago.info
+
+**Contesto:** priorità chiarite con Omar il 26/06 — vedi [log.md](log.md). agent-ecommerce è già live, non più "da chiudere"; il vero tema della settimana è capire se/come ridisegnare herbago.info come piattaforma centrale multi-progetto.
 
 | Key Result | Target | Attuale | Status |
 |---|---|---|---|
-| Struttura holding creata (board/, platform/, projects/) | 100% | 🟡 In corso | IN PROGRESS |
-| HOLDING.md completo e accurato | Fatto | 🟡 In corso | IN PROGRESS |
-| Agent-ecommerce deploy produzione | Deploy | 🟡 In sviluppo | IN PROGRESS |
-| Dashboard HTML herbago.info | Online | 🔵 Da fare | PLANNED |
+| agent-ecommerce in PRD, fine-tuning continuo | Stabile | 🟢 Live, fine-tuning in corso | ON TRACK |
+| Dashboard monitoraggio chatbot (chat.herbago.info/dashboard) | Online | 🟢 Live | DONE |
+| Ambiente di test chatbot (chat.herbago.info/dashboard/test) | Online | 🟢 Live | DONE |
+| Bozza architettura piattaforma herbago.info multi-progetto | Bozza pronta | 🔵 Da fare (sessione con Opus) | PLANNED |
+| Strategia contenuti SEO + email nurturing (HerbaMarketer) | Bozza | 🔵 Da fare | PLANNED |
+| Budget infra sotto tetto €100/mese | <€100 | 🔵 Da monitorare | PLANNED |
 
 ---
 
@@ -32,5 +36,10 @@
 - KR4: Dashboard live
 
 **O3: Fondamenta qualità**
-- KR1: Almeno 5 test automatizzati su agent-ecommerce
-- KR2: Monitoring uptime base attivo (healthcheck endpoint)
+- KR1: Almeno 5 test automatizzati su agent-ecommerce — rimandato, non priorità Q3 (decisione Omar 26/06), va preparato programma da discutere con Michele (Senior Architect) ed Emiliano prima di procedere
+- KR2: Monitoring uptime base attivo (healthcheck endpoint) — parzialmente coperto da dashboard chat.herbago.info/dashboard
+
+**O4: Strategia piattaforma herbago.info (nuovo, da 26/06)**
+- KR1: Sessione di architettura con Opus per definire le fondamenta della piattaforma multi-progetto
+- KR2: Coinvolgere Michele (Senior Architect) ed Emiliano per la roadmap test/CI-CD
+- KR3: Definire strategia produzione contenuti SEO + email nurturing su HerbaMarketer

@@ -2,7 +2,7 @@
 
 **Riporta a:** board/cto (architettura, standard, platform)
 **Riporta anche su:** obiettivi tecnici specifici del progetto Herbalife
-**Status onboarding:** 🟢 SCOPE CHIARO — il progetto più documentato della holding
+**Status onboarding:** 🟢 SCOPE CHIARO — priorità confermate da Omar il 2026-06-26 (vedi [log.md](../log.md))
 
 ---
 
@@ -27,6 +27,12 @@
 
 **Sotto-progetto separato:** HerbaMarketer (`herbamarketer/`) — repo e deploy proprio (GitHub + Coolify), tenuto in `.gitignore` del repo principale, vive nella cartella solo per comodità dev.
 
+**Dashboard live (chiarito 2026-06-26):**
+- `https://chat.herbago.info/dashboard/` — monitoraggio agenti chatbot (conversazioni, sentiment, qualità, cost monitoring, configurazione)
+- `https://chat.herbago.info/dashboard/test` — ambiente di test chatbot, validazione prima del push in PRD
+- `https://dashboard.herbago.info/` — HerbaMarketer (contenuti multi-sito, articoli, email Mautic/Brevo, GA + Google Ads collegati)
+- Visione: `herbago.info` come piattaforma centrale della holding, da valutare per ospitare altri siti/progetti
+
 **Regole architetturali consolidate (sezione 6 CLAUDE.md):**
 - "Se è iterabile → Docker service" (pattern per ogni nuovo agente)
 - Test end-to-end obbligatorio prima di dichiarare "fatto"
@@ -36,18 +42,22 @@
 
 ---
 
-## Cosa manca — domande per Omar
+## Risposte di Omar (2026-06-26)
 
-1. **Priorità reale questa settimana:** chiudere agent-ecommerce, o spostare focus su ottimizzazione HerbaMarketer (visto che è "in fase di ottimizzazione")? Non possono essere entrambi #1.
-2. **Budget infrastruttura:** c'è un tetto di spesa mensile Hetzner/Claude API che non deve essere superato? (serve anche al CFO)
-3. **Deploy authority:** in questa fase chi approva un deploy in produzione — solo Omar, o posso procedere autonomamente su fix minori?
-4. **Test suite e CI/CD:** confermi che non esistono ancora? È una priorità a breve o si può rimandare oltre Q3?
-5. **Estrazione platform/chatbot/:** confermi che va fatta SOLO dopo che agent-ecommerce è stabile in produzione (come deciso nel log CTO)?
+1. **Priorità reale:** non sono in conflitto — gli agenti chatbot (distributor, preferred-customer, ecommerce) sono già il prodotto più evoluto: widget WordPress live, chatbot funzionante, dashboard di monitoraggio in PRD. agent-ecommerce è già funzionante e in fine-tuning continuo (non "da chiudere"). Il vero tema aperto è strategico: valutare se ridisegnare l'architettura di `herbago.info` come piattaforma centrale multi-progetto, e definire come produrre contenuti SEO + email di nurturing (via HerbaMarketer).
+2. **Budget infrastruttura:** tetto autonomo €100/mese (Hetzner + Claude API). Per modificarlo serve discussione preventiva con Omar.
+3. **Deploy authority:** fix minori → autonomia piena. Re-ingegnerizzazione della piattaforma → richiede strategia condivisa prima di procedere, per step; questa fase di fondamenta va condotta con Opus.
+4. **Test suite e CI/CD:** confermato, non esistono ancora. Non priorità immediata, nessuna scadenza Q3. Va preparato un programma da discutere con Michele (Senior Architect, da coinvolgere) ed Emiliano (socio Herbalife).
+5. **Estrazione platform/chatbot/:** confermata la regola — solo dopo stabilità in produzione, verificata tramite l'ambiente di test dedicato (`chat.herbago.info/dashboard/test`), non tramite una "chiusura" formale del progetto.
+
+Decisioni registrate in dettaglio in [board/cto/log.md](../log.md).
 
 ---
 
-## OKR specifici progetto (proposta — da confermare)
+## OKR specifici progetto (aggiornato 2026-06-26)
 
-- KR1: agent-ecommerce deploy produzione su tutti i domini herbago.*
-- KR2: Test e2e su agent-ecommerce prima del deploy (regola d'oro)
+- KR1: agent-ecommerce stabile in PRD su tutti i domini herbago.*, fine-tuning continuo ✅ in corso
+- KR2: Test e2e su agent-ecommerce prima del deploy (regola d'oro) — confermata, eseguita via ambiente di test `chat.herbago.info/dashboard/test`
 - KR3: Nessuna regressione sugli agenti già in PRD durante lo sviluppo
+- KR4 (nuovo): Bozza strategia architettura piattaforma `herbago.info` multi-progetto (sessione con Opus)
+- KR5 (nuovo): Programma test suite/CI-CD da proporre a Michele ed Emiliano (non bloccante, oltre Q3)
