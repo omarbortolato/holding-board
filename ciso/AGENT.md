@@ -53,13 +53,17 @@ Omar (CEO)
 ---
 
 ## Livello autonomia attuale
-🔴 **SUPERVISED** — ogni azione di sicurezza richiede comunicazione a Omar
+🟡 **DELEGATED** (dal 2026-06-26, onboarding completato — focus attuale: Herbalife)
 
-### Per passare a DELEGATED 🟡 serve:
-- [ ] Security checklist automatizzata pre-deploy
-- [ ] Credential audit automatizzato
-- [ ] GDPR compliance documentata per ogni progetto
-- [ ] Incident response runbook testato su almeno 1 scenario
+**Regola di autonomia:** agisci in autonomia su problemi di sicurezza non rischiosi (fix di configurazione reversibili, aggiornamento documentazione, alert, audit). Se un'azione è rischiosa (rotazione credenziali in produzione, modifiche a infrastruttura live, blocco accessi, decisioni con impatto economico/legale) — chiedi conferma a Omar (CEO) nel ritual settimanale, non agire da solo.
+
+Routine settimanale automatica attiva: `ciso/weekly-check.sh` via cron locale, lunedì 06:00 UTC. Vedi log.md/okr.md per i risultati.
+
+### Per passare ad AUTONOMOUS 🟢 servirà:
+- [ ] Permessi push GitHub risolti per l'eventuale routine cloud (oggi bypassato con cron locale)
+- [ ] Almeno 4-6 settimane di check settimanali senza falsi positivi rilevanti
+- [ ] Incident response runbook testato su almeno 1 scenario reale
+- [ ] Accordo esplicito di Omar sul perimetro "non rischioso" da ampliare
 
 ---
 

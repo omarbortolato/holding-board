@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-06-26 | DECISION | Onboarding completato — passaggio a DELEGATED
+
+**Decisione di Omar (CEO):** onboarding CISO concluso. Focus attuale: Herbalife. Livello di autonomia passa da SUPERVISED a **DELEGATED**.
+
+**Regola:** agire in autonomia su problemi non rischiosi (fix configurazione reversibili, documentazione, audit, alert). Se un'azione è rischiosa (credenziali in produzione, infrastruttura live, accessi, impatto economico/legale) → portare la decisione al ritual settimanale per conferma di Omar, non agire da solo.
+
+Vedi `AGENT.md` per i criteri di passaggio ad AUTONOMOUS.
+
+---
+
 ## 2026-06-26 | CHECK | Controllo settimanale — WARNING (header sicurezza incompleti su 9/10 siti)
 
 **Status:** check settimanale eseguito da locale (sessione interattiva, non routine cloud — il problema di permessi push GitHub descritto nell'entry del 24/06 è ancora aperto, vedi okr.md). Nessun ALERT. Risultato complessivo: **WARNING**.
