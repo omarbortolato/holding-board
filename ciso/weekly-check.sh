@@ -6,6 +6,7 @@ set -euo pipefail
 cd /root/board
 set -a
 source /root/board/.cron-env
+export IS_SANDBOX=1
 set +a
 
 PROMPT=$(cat <<'EOF'
