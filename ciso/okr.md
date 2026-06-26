@@ -4,6 +4,19 @@
 
 ---
 
+## Settimana 2026-W26 bis (26 Giu, check infra-settimanale)
+
+### Obiettivo: Check settimanale di sicurezza (SSL + header) — eseguito a mano per blocco push cloud
+
+| Key Result | Target | Attuale | Status |
+|---|---|---|---|
+| Certificati SSL Herbalife (10 domini) | Tutti >30gg | ✅ Tutti PASS, scadenze scaglionate (35–87gg) — confermato rinnovo automatico per-dominio, non cert condiviso come ipotizzato la settimana scorsa | DONE |
+| Security header HTTP base (X-Frame-Options, X-Content-Type-Options, Referrer-Policy) | Presenti su tutti i siti | ⚠️ Solo `herbago.info` li espone tutti correttamente; 9/10 siti mancano `X-Frame-Options`/`X-Content-Type-Options` (vedi log.md 2026-06-26) | WARNING — da verificare config Nginx su Hetzner |
+| Permessi scrittura GitHub per routine cloud | Concessi | 🔴 Ancora bloccato — check di questa settimana fatto manualmente in locale, stesso problema della W26 | BLOCCATO |
+| Audit pratico manuale Herbalife | <30gg dall'ultimo | ✅ Ultimo audit 2026-06-24, entro soglia | DONE |
+
+---
+
 ## Settimana 2026-W26 (22–28 Giu)
 
 ### Obiettivo: Attivare la routine settimanale automatica

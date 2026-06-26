@@ -4,6 +4,50 @@
 
 ---
 
+## 2026-06-26 | CHECK | Controllo settimanale — WARNING (header sicurezza incompleti su 9/10 siti)
+
+**Status:** check settimanale eseguito da locale (sessione interattiva, non routine cloud — il problema di permessi push GitHub descritto nell'entry del 24/06 è ancora aperto, vedi okr.md). Nessun ALERT. Risultato complessivo: **WARNING**.
+
+**1. Scadenza certificati SSL** — tutti PASS, nessuno sotto i 30 giorni. Nota: a differenza del check del 24/06 (tutti scadevano il 2026-07-24, ipotesi cert multi-dominio condiviso), ora le scadenze sono **scaglionate per dominio** → confermato che il rinnovo automatico (certbot) funziona ed è per-dominio, non un singolo cert condiviso come ipotizzato. Il rischio "tutti i siti giù insieme" segnalato la settimana scorsa è quindi superato.
+
+| Dominio | Scadenza | Giorni rimanenti | Stato |
+|---|---|---|---|
+| herbago.info | 2026-09-21 | ~87 | ✅ PASS |
+| herbago.it | 2026-07-31 | ~35 | ✅ PASS |
+| herbago.fr | 2026-08-18 | ~53 | ✅ PASS |
+| herbago.de | 2026-09-12 | ~78 | ✅ PASS |
+| herbago.co.uk | 2026-09-12 | ~78 | ✅ PASS |
+| herbago.net | 2026-09-01 | ~67 | ✅ PASS |
+| herbashop.it | 2026-08-15 | ~50 | ✅ PASS |
+| hlifeclienteprivilegiato.it | 2026-09-05 | ~71 | ✅ PASS |
+| hl-distributor.com | 2026-07-31 | ~35 | ✅ PASS |
+| hlifepreferredcustomer.com | 2026-08-16 | ~51 | ✅ PASS |
+
+**2. Security header HTTP** (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`) — `curl -sIL` su ogni dominio (seguendo redirect 301 dove presenti):
+
+| Dominio | X-Frame-Options | X-Content-Type-Options | Referrer-Policy | Stato |
+|---|---|---|---|---|
+| herbago.info | ✅ SAMEORIGIN | ✅ nosniff | ✅ strict-origin-when-cross-origin | ✅ PASS |
+| herbago.it | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+| herbago.fr | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+| herbago.de | ❌ assente | ❌ assente | ⚠️ presente ma debole (`no-referrer-when-downgrade`) | ⚠️ WARNING |
+| herbago.co.uk | ❌ assente | ❌ assente | ⚠️ presente ma debole | ⚠️ WARNING |
+| herbago.net | ❌ assente | ❌ assente | ⚠️ presente ma debole | ⚠️ WARNING |
+| herbashop.it | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+| hlifeclienteprivilegiato.it | ❌ assente | ❌ assente | ⚠️ presente ma debole | ⚠️ WARNING |
+| hl-distributor.com | ❌ assente | ❌ assente | ⚠️ presente ma debole | ⚠️ WARNING |
+| hlifepreferredcustomer.com | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+
+`SECURITY.md` (§6) documenta questi header come configurati in Nginx su tutti i virtual host. Solo `herbago.info` li espone correttamente nella risposta osservata da qui; gli altri 9 siti non li espongono (o solo parzialmente, con un valore più debole del previsto) nella risposta vista da questo ambiente. **Non è un ALERT** per istruzione esplicita (possibile effetto di CDN/cache/proxy intermedio tra questo ambiente e il server reale, oppure i siti `.it/.fr/.de/...` non passano dallo stesso nginx config di `herbago.info`/CMS diverso) — ma è una discrepanza degna di verifica manuale sul server Hetzner per capire se Nginx sta davvero servendo questi header per quei virtual host o se la config è stata applicata solo su uno.
+
+**3. Controlli a livello di codice** (rate limiting, CORS, `.env` tracked): non eseguiti — repo GitLab privato Herbalife non disponibile da questo ambiente. Ultimo audit pratico manuale (`AUDIT` in questo log): 2026-06-24, **2 giorni fa** → entro la soglia dei 30 giorni, nessuna azione richiesta.
+
+**Azioni suggerite:**
+- Verificare su Hetzner perché i security header Nginx (§6 SECURITY.md) non risultano su 9/10 virtual host — possibile config applicata a un solo server block.
+- Permessi push GitHub per routine cloud ancora bloccati (vedi okr.md) — check di questa settimana fatto a mano per lo stesso motivo della settimana scorsa.
+
+---
+
 ## 2026-06-24 | CHECK | Test routine settimanale cloud — WARNING + problema infra
 
 **Status:** primo run di test della routine cloud CISO (manuale, 18:17 UTC). Eseguito con successo il check SSL; bloccato sul push (vedi "Problema infrastruttura" sotto). Questa entry è stata scritta a mano da Omar/Claude in sessione locale perché il commit prodotto dal cloud agent (`8b217a1`/`c192463`) non è riuscito a raggiungere `origin/main` ed è andato perso con la fine della sessione cloud.
