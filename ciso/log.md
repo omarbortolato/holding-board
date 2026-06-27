@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-06-27 | ALERT | Segreti committati nei repo GitLab PIM/OMS (da CTO)
+**Contesto:** durante il censimento piattaforma, il CTO ha clonato `gitlab.com/herbago/oms-herbago` e `gitlab.com/herbago/pim-herbago` per valutare le API e ha rilevato credenziali in chiaro versionate.
+**Finding:**
+- **OMS** — `sync_config.jsonc` git-tracked contiene credenziali FTP in chiaro: produzione (host `86.107.36.160`, user `ftpuser@oms.herbago.it`) e staging Hostinger (`46.202.158.161`).
+- **PIM** — `.env` git-tracked (nonostante `.gitignore`) contiene credenziali DB (`DB_HOST/DB_NAME/DB_USER/DB_PASS`).
+**Rischio:** chiunque abbia accesso (anche storico) ai repo ha accesso FTP produzione + DB. Esposizione attiva.
+**Azione raccomandata (RISCHIOSA → conferma Omar al ritual):**
+1. Rotazione immediata credenziali FTP (prod+staging) e password DB PIM
+2. `git rm --cached` dei file + aggiunta a `.gitignore` + purge dalla history (git filter-repo/BFG)
+3. Spostare config in secrets non versionati (pattern `.env` + secrets/ già usato in herbie-server)
+4. Audit accessi repo GitLab (chi ha avuto accesso)
+**Stato:** segnalato a Omar 2026-06-27, in attesa di conferma per la rotazione.
+
+---
+
 ## 2026-06-26 | DECISION | Onboarding completato — passaggio a DELEGATED
 
 **Decisione di Omar (CEO):** onboarding CISO concluso. Focus attuale: Herbalife. Livello di autonomia passa da SUPERVISED a **DELEGATED**.

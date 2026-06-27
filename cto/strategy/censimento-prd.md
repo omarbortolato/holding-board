@@ -59,16 +59,29 @@ Più avanzato di quanto i doc holding lasciassero intendere.
 
 ---
 
-## 4. PIM & OMS — dettaglio (sistemi #3 e #4) — NUOVI nel quadro
+## 4. PIM & OMS — dettaglio (sistemi #3 e #4) — verificato sul codice (repo GitLab)
 
-Sviluppati l'anno scorso, **PHP 8.2 su LiteSpeed**, stack completamente diverso dalla AI platform.
+Repo: `gitlab.com/herbago/oms-herbago` e `gitlab.com/herbago/pim-herbago`. Entrambi **PHP 8.2** custom (MVC fatto in casa: `action/`, `classes/`, `view/`, `utils/`; nessun framework), hosting LiteSpeed/Hostinger, stack diverso dalla AI platform.
 
-- **PIM** (`pim.herbago.it`): gestisce i prodotti per i siti `herbago.xx` (NON herbashop.it). Da CLAUDE.md: "prende prodotti dal sito ufficiale, crea descrizioni/immagini, alimenta tutti i WooCommerce".
-- **OMS** (`oms.herbago.it`): "riceve ordini via webhook, arricchisce con dati Herbalife da email (tracking incluso)".
+### OMS (`oms.herbago.it`) — 🟢 ha già una REST API matura
+"Riceve ordini via webhook, arricchisce con dati Herbalife da email (tracking)". **Espone una REST API v1 documentata** (`docs/api-documentation.md`):
+- Auth: `X-API-Key` (+ opz. `X-Secret-Key`), rate limit 1000 req/h, versioning `/api/v1/`, risposta JSON con envelope `status/data/meta`
+- Endpoint: `GET /api/v1/orders/{external_order_id|order_code}`, `/orders/stats`, `/customers/email/{email}`, `/products/sales`
+- Gestione API key CRUD inclusa (`endpoint/api-keys.php`)
 
-**Stato integrazione:** 🔴 **non integrati** con la AI platform. CLAUDE.md li elenca già come TODO ("Integrazione PIM in piattaforma", "Integrazione OMS in piattaforma"). Oggi l'agent-ecommerce legge gli ordini da WooCommerce API, non dall'OMS, e il catalogo non arriva dal PIM.
+➡️ **Integrazione = wrapper leggero, non build.** L'agent-ecommerce può sostituire/affiancare la lettura diretta WooCommerce con l'OMS API (stato ordine, tracking, lookup cliente, sales). Effort basso.
 
-**Raccomandazione (API-first, no rewrite ora):** esporre PIM e OMS via API dentro l'**Integrations Hub** della piattaforma → l'agent-ecommerce attinge catalogo (PIM) e stato ordini/tracking (OMS) da un'unica fonte. Riscrittura nello stack Python solo se/quando giustificata. **Serve accesso GitLab** per valutare le API esistenti.
+### PIM (`pim.herbago.it`) — 🟡 nessuna API
+Gestisce prodotti dei siti `herbago.xx` (NON herbashop.it): aggiunta prodotti da sitemap, traduzione multilingua, alimenta i WooCommerce. `docs/` copre solo traduzione/sitemap — **nessuna API REST**.
+
+➡️ **Integrazione richiede lavoro:** o costruiamo un piccolo export/API sul PIM, o attingiamo i dati prodotto dall'OMS (`/products/sales`) dove sufficiente. Da decidere caso per caso.
+
+### 🔴 ALERT SICUREZZA (escalato a CISO 2026-06-27)
+Trovati **segreti committati nei repo GitLab**:
+- **OMS** `sync_config.jsonc` (git-tracked) → **credenziali FTP in chiaro** di produzione (host `86.107.36.160`) e staging (Hostinger).
+- **PIM** `.env` (git-tracked nonostante `.gitignore`) → **credenziali DB** (`DB_PASS` ecc.).
+
+**Azione richiesta:** rotazione credenziali FTP + DB, rimozione file dalla history git, spostamento in secrets non versionati. Vedi `board/ciso/log.md`.
 
 ---
 
