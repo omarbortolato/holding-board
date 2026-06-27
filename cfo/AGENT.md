@@ -50,26 +50,32 @@ Omar (CEO)
 ---
 
 ## Livello autonomia attuale
-🔴 **SUPERVISED** — ogni spesa e ogni report richiede review Omar
+🟡 **DELEGATED (parziale)** — onboarding Herbalife completato (2026-06-27), baseline costi/ricavi reale disponibile da Google Sheet "Guadagni Mese Herbalife". Check settimanale automatico attivo (`weekly-check.sh`, lunedì). Resta SUPERVISED ogni spesa non pianificata e ogni decisione di allocazione budget — Omar mantiene autorità piena.
 
-### Per passare a DELEGATED 🟡 serve:
-- [ ] P&L automatizzato attivo per tutti i progetti
+### Per passare a DELEGATED 🟡 pieno serve:
+- [x] Baseline costi/ricavi Herbalife 2026 documentata (vedi `reports/herbalife.md`)
+- [ ] P&L automatizzato attivo per tutti i progetti (oggi: solo Herbalife, on-demand)
 - [ ] Dashboard finanziaria live
-- [ ] Budget tracking settimanale automatico
+- [x] Budget tracking settimanale automatico (check lunedì via cron, dati Herbalife da aggiornare manualmente finché non c'è accesso Sheet in headless)
 - [ ] Storico 3 mesi di report senza errori materiali
 
 ---
 
-## Struttura budget attuale (da definire con Omar)
+## Struttura budget attuale — Herbalife (baseline reale 2026-06-27, da Google Sheet)
 
-| Categoria | Budget mensile | Attuale |
+| Categoria | Budget mensile | Attuale (media 2026, escl. ads) |
 |---|---|---|
-| Infrastruttura (Hetzner) | Da definire | ~€XX/mese |
-| LLM API (Claude) | Da definire | ~€XX/mese |
-| Email marketing (Brevo) | Da definire | ~€XX/mese |
-| Advertising Herbalife | Da definire | Da definire |
-| Tools e SaaS | Da definire | Da definire |
-| **Totale** | **Da definire** | |
+| Infrastruttura (Hetzner) | Nessun tetto fisso (bootstrap) | ~€15/mese |
+| LLM API (Claude Pro personale) | Nessun tetto fisso | ~$20/mese (~€18-19, condiviso multi-progetto) |
+| Hosting siti (Siteground) | — | ~€24/mese |
+| Email marketing (Brevo) | — | ~€26/mese |
+| Iubenda + domini | — | ~€15-25/mese (variabile per rinnovi) |
+| Advertising Herbalife (Google Ads) | **Nessun tetto — driver principale, in crescita** | €800/mese (gen) → ~€3.700/mese (mag), trend salita continua |
+| **Totale tracciato (escl. Hetzner/Claude Pro)** | — | ~€1.780/mese (gen) → ~€3.800/mese (mag) |
+
+**Filosofia budget (da Omar):** bootstrap puro, nessun tetto fisso imposto dall'alto — ogni investimento (specialmente Google Ads) deve autofinanziarsi con revenue incrementale. Il CFO monitora lo scostamento, non blocca la spesa.
+
+**Divisione costi/ricavi Omar/Emiliano:** 50/50, riconciliazione precisa a fine trimestre (non mese per mese).
 
 ---
 
@@ -87,7 +93,7 @@ Omar (CEO)
 
 ## Alert triggers
 
-- Spesa mensile supera budget >10%
+- Spesa mensile supera budget >10% (soglia confermata da Omar 2026-06-27 — vale finché non sono definiti costi extra pianificati)
 - ROAS campagna scende sotto 2x per 2 settimane
 - Costo infrastruttura cresce >20% mese su mese
 - Richiesta spesa non pianificata da qualsiasi C-level >€200
@@ -97,12 +103,13 @@ Omar (CEO)
 
 ## Ritual settimanale
 
-**Lunedì**
-- Check spese settimana precedente
-- Aggiorna `okr.md`
+**Lunedì (automatico da 2026-06-27, `cfo/weekly-check.sh` via cron)**
+- Check stato siti/servizi infra critici (Hetzner-dipendenti)
+- Promemoria: aggiornare baseline costi/ricavi da Google Sheet "Guadagni Mese Herbalife" (accesso Drive non disponibile in headless — richiede sessione interattiva)
+- Append entry in `log.md`, aggiorna `okr.md`
 
-**Fine mese**
-- Report P&L per ogni progetto
+**Fine mese (manuale, sessione interattiva)**
+- Report P&L per ogni progetto, letto da Google Sheet
 - ROI analysis per ogni agente AI
 - Proposta allocazione budget mese successivo
 
