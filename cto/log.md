@@ -5,6 +5,16 @@
 
 ---
 
+## 2026-06-27 | DECISION | Kickoff strategia piattaforma "Herbago Platform" (Opus)
+**Contesto:** Omar dà mandato strategico al CTO: progettare una piattaforma AI all-in-one, sovrana, cost-effective ed estendibile a qualsiasi business, partendo da Herbalife (marketing + chatbot + monitoring) come tenant 0 e con la prospettiva di estrarre un prodotto B2B SaaS. Il CMO attende riunione con il CTO per fissare stack, content gen, email marketing, kanban/work, marketing manager autonomo, test chatbot, monitoring cockpit. Emiliano sta sviluppando un'app clienti da integrare nello stack.
+**Decisione/Output:**
+- Prodotto documento di fondazione: [strategy/platform-strategy.md](strategy/platform-strategy.md) — architettura a livelli, principi (config-driven multi-tenancy, API-first, sovrano, buy-vs-build, cost-aware, extraction-ready), decisioni per ambito con raccomandazioni, roadmap fasata, agenda meeting.
+- Insight chiave: NON partiamo da zero. Due motori già in PRD — agent runtime (chatbot fleet) e marketing engine (HerbaMarketer, 7 siti). La strategia è fonderli su spina dorsale comune ed estrarre i pattern, non riscrivere.
+- Da presentare a **Michele** (Senior Architect) ed **Emiliano** settimana W27.
+- Quick win identificati: LiteLLM punta a opus-4-7 → aggiornare a 4.8; chiudere sovereignty leak embeddings/immagini su OpenAI.
+- Raccomandazione email: non costruire l'invio (deliverability), razionalizzare 6 Mautic + Brevo → un Mautic unico dietro l'orchestrazione HerbaMarketer.
+**Prossimo:** allineamento con Omar sulle decisioni forcanti (email/ESP, monorepo, integrazione app Emiliano), poi Fase 1.
+
 ## 2026-06-26 | DECISION | Priorità reale chiarita con Omar
 **Contesto:** Risposta di Omar alle domande del Tech Lead Herbalife su priorità ecommerce vs HerbaMarketer.
 **Decisione:**

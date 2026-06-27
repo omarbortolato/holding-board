@@ -15,9 +15,24 @@
 | agent-ecommerce in PRD, fine-tuning continuo | Stabile | 🟢 Live, fine-tuning in corso | ON TRACK |
 | Dashboard monitoraggio chatbot (chat.herbago.info/dashboard) | Online | 🟢 Live | DONE |
 | Ambiente di test chatbot (chat.herbago.info/dashboard/test) | Online | 🟢 Live | DONE |
-| Bozza architettura piattaforma herbago.info multi-progetto | Bozza pronta | 🔵 Da fare (sessione con Opus) | PLANNED |
-| Strategia contenuti SEO + email nurturing (HerbaMarketer) | Bozza | 🔵 Da fare | PLANNED |
+| Bozza architettura piattaforma herbago.info multi-progetto | Bozza pronta | 🟢 FATTO — [strategy/platform-strategy.md](strategy/platform-strategy.md) | DONE |
+| Strategia contenuti SEO + email nurturing (HerbaMarketer) | Bozza | 🟡 Coperta nel doc (sez. 5.2/5.3), da dettagliare con CMO | IN PROGRESS |
 | Budget infra sotto tetto €100/mese | <€100 | 🔵 Da monitorare | PLANNED |
+
+---
+
+## Settimana 2026-W27 (29 Giu – 03 Lug) — Fase 0: Allineamento
+
+### Obiettivo: portare la strategia piattaforma al meeting Michele & Emiliano
+
+| Key Result | Target | Attuale | Status |
+|---|---|---|---|
+| Documento strategia finalizzato + condiviso con Omar | Fatto | 🟢 Bozza pronta | DONE |
+| Allineamento Omar su decisioni forcanti (email/ESP, monorepo, app Emiliano) | Allineato | 🔵 Da fare | PLANNED |
+| Quick win: LiteLLM opus-4-7 → 4.8 | Fatto | 🟢 Editato (deploy manuale Hetzner) | DONE |
+| Sovereignty leak: piano per embeddings/immagini OpenAI | Identificato | 🟢 Documentato | DONE |
+| Censimento onesto PRD vs prototipo + debito tecnico | Fatto | 🔵 Da fare | PLANNED |
+| Agenda + materiale meeting Michele/Emiliano | Pronto | 🟡 Agenda nel doc (sez. 10) | IN PROGRESS |
 
 ---
 
