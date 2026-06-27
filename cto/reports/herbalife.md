@@ -15,9 +15,6 @@
 |---|---|
 | 80/443 | nginx |
 | 8000 | concierge (routing hub) |
-| 8010 | agent-products |
-| 8011 | agent-prices |
-| 8012 | agent-health |
 | 8013 | agent-distributor |
 | 8014 | agent-preferred-customer |
 | 8015 | agent-ecommerce (in sviluppo) |

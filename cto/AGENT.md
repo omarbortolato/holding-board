@@ -89,9 +89,6 @@ Hetzner /opt/platform/
 ├── docker-compose.yml
 ├── services/
 │   ├── agents/
-│   │   ├── agent-products (8010)
-│   │   ├── agent-prices (8011)
-│   │   ├── agent-health (8012)
 │   │   ├── agent-distributor (8013)
 │   │   ├── agent-preferred-customer (8014)
 │   │   └── agent-ecommerce (8015) ← in sviluppo

@@ -5,6 +5,11 @@
 
 ---
 
+## 2026-06-27 | REPORT | Documento Notion per meeting Michele/Emiliano + pulizia doc stale
+**Output:** [Strategia Piattaforma Herbago — CTO (2026-06-27)](https://app.notion.com/p/38cef582d2598188b405f42bc7ab96d4) — sotto "Herbalife Home", sintesi condivisibile di strategia + censimento + alert sicurezza, con agenda meeting.
+**Pulizia autonoma (azione minore, non rischiosa):** rimossi ovunque i riferimenti agli agenti phantom `agent-products/prices/health` (8010-8012, mai esistiti nel codice) da CLAUDE.md, board/cto/AGENT.md, board/cto/reports/herbalife.md, projects/herbalife.md, strategy/platform-strategy.md. Committato anche il quick win LiteLLM opus-4-7→4.8 (editato in sessione precedente, non ancora commitato).
+**Non eseguito (rischioso, in attesa di Omar):** rotazione credenziali FTP/DB esposte su GitLab — vedi alert CISO.
+
 ## 2026-06-27 | REPORT | Censimento onesto PRD (Fase 0)
 **Contesto:** primo step scelto da Omar. Audit verificato su codice + endpoint live + git, non sui doc.
 **Findings:**

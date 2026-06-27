@@ -29,7 +29,7 @@ Target di business a cui la piattaforma è asservita: **primo milione di euro**.
 Abbiamo **motori che già funzionano in produzione**. La strategia è unificarli, non reinventarli.
 
 **Motore 1 — Agent Runtime (chatbot):**
-- Fleet di microservizi FastAPI: `agent-products`, `agent-prices`, `agent-health`, `agent-distributor` (13 lingue), `agent-preferred-customer` (10 lingue), `agent-ecommerce` (live, fine-tuning)
+- Fleet di microservizi FastAPI: `agent-distributor` (13 lingue), `agent-preferred-customer` (10 lingue), `agent-ecommerce` (live, fine-tuning)
 - `concierge` (routing hub), `drive-indexer` (RAG), `scraper`, `google-workspace`, `analytics`
 - `base/common.py` = logica condivisa (session memory, lingua, quick reply)
 - Widget WordPress (TS) installato sui siti
