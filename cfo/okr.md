@@ -14,7 +14,7 @@
 | Accesso Google Sheet "Guadagni Mese Herbalife" verificato | Lettura | ✅ Verificato via Drive connector | DONE |
 | Baseline costi 2026 (gen-giu) documentata | Report | ✅ in `reports/herbalife.md` | DONE |
 | Baseline profitto Omar/Emiliano 2026 documentata | Report | ✅ in `reports/herbalife.md` | DONE |
-| Gap royalties 2026 (Assegni a €0) segnalato a Omar | Flag | ✅ segnalato, risposta pending | IN PROGRESS |
+| Assegni/Royalties 2026 documentati (downline) | Report | ✅ trovati e documentati — nessun gap, erano in una sezione diversa del tab P&L 2026 | DONE |
 | Weekly check automatico attivato (cron lunedì) | Script attivo | ✅ `weekly-check.sh` | DONE |
 
 ---
@@ -45,6 +45,6 @@
 
 ## OKR specifici Herbalife (da `reports/herbalife.md`)
 
-**O1 — Baseline finanziaria consolidata**: costi/ricavi 2026 documentati ✅, gap royalties da chiudere 🔵
+**O1 — Baseline finanziaria consolidata**: costi/ricavi ecommerce 2026 documentati ✅, Assegni+Royalties downline 2026 documentati ✅ (YTD combinato ≈ €3.018)
 **O2 — Controllo spesa Google Ads** (driver di costo principale, in crescita continua €800→€3.700/mese): alert 10% da automatizzare oltre il livello report
 **O3 — P&L mensile ricorrente senza intervento di Omar**: oggi richiede sessione interattiva per leggere il Google Sheet (headless non ha accesso Drive)

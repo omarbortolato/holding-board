@@ -4,6 +4,17 @@
 
 ---
 
+## 2026-06-27 | CORREZIONE | Gap royalties era un errore di lettura, non un dato mancante
+**Cosa è successo:** nella entry precedente di oggi avevo segnalato "Assegni a €0,00 per tutto il 2026" come gap dati. Era un errore: avevo letto solo la tabella "Ordini Diretti" (ecommerce), dove quella riga non si applica. Omar mi ha indicato la sezione corretta del tab "P&L 2026" (righe ~303-308).
+
+**Dato corretto:** Assegni (5% prime linee, fino alla 3ª) e Royalties (2% volume totale organizzazione, da distributori diventati Supervisori) sono entrambi attivi e tracciati per il 2026. YTD (feb-giu) Omar+Emiliano: Assegni €2.503,91 combinato, Royalties €514,68 (solo Omar). Cliente Privilegiato non genera royalties diretti — alimenta il volume in punti che genera l'Assegno al distributore upline.
+
+**Lezione:** il Google Sheet ha più tabelle parallele per linea di business (Ordini Diretti vs Downline) con la stessa etichettatura di colonna — verificare sempre quale tabella si sta leggendo prima di concludere che un dato è a zero/mancante.
+
+**Azioni:** corretti `reports/herbalife.md`, `okr.md`, memoria di sistema. Nessun problema reale da segnalare a Omar su questo fronte — chiusa la KR3 di O1.
+
+---
+
 ## 2026-06-27 | NOTE | Onboarding Herbalife completato — passaggio a DELEGATED parziale
 **Status:** 🟡 DELEGATED (parziale) — onboarding completato, baseline reale costruita da Google Sheet "Guadagni Mese Herbalife" (accesso lettura verificato via Drive connector).
 
