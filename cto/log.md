@@ -5,6 +5,16 @@
 
 ---
 
+## 2026-06-27 | REPORT | Censimento onesto PRD (Fase 0)
+**Contesto:** primo step scelto da Omar. Audit verificato su codice + endpoint live + git, non sui doc.
+**Findings:**
+- 4+ sistemi in PRD: chatbot platform (GitLab), HerbaMarketer (GitHub/Coolify), **PIM** e **OMS** (PHP 8.2/LiteSpeed, `pim.herbago.it`/`oms.herbago.it`, segnalati da Omar) + siti WordPress.
+- PIM/OMS **non integrati** con la AI platform → da esporre via API (Integrations Hub), no rewrite. Serve accesso GitLab.
+- HerbaMarketer più avanzato del previsto: già ads_advisor, analytics_advisor, GSC, Strategy Dashboard.
+- Agenti reali: solo base/distributor/ecommerce/preferred-customer. **products/prices/health documentati in CLAUDE.md ma inesistenti** (doc stale).
+- Debito chiave: zero test, frammentazione 3 repo + poliglotta (Python/PHP/Next.js/WP), sovereignty leak OpenAI (embeddings+DALL-E), due metodi di deploy, 6 Mautic.
+**Output:** [strategy/censimento-prd.md](strategy/censimento-prd.md).
+
 ## 2026-06-27 | DECISION | Kickoff strategia piattaforma "Herbago Platform" (Opus)
 **Contesto:** Omar dà mandato strategico al CTO: progettare una piattaforma AI all-in-one, sovrana, cost-effective ed estendibile a qualsiasi business, partendo da Herbalife (marketing + chatbot + monitoring) come tenant 0 e con la prospettiva di estrarre un prodotto B2B SaaS. Il CMO attende riunione con il CTO per fissare stack, content gen, email marketing, kanban/work, marketing manager autonomo, test chatbot, monitoring cockpit. Emiliano sta sviluppando un'app clienti da integrare nello stack.
 **Decisione/Output:**

@@ -24,7 +24,9 @@ Target di business a cui la piattaforma è asservita: **primo milione di euro**.
 
 ## 2. Dove siamo già (non partiamo da zero)
 
-Abbiamo **due motori che già funzionano in produzione**. La strategia è unificarli, non reinventarli.
+> Censimento completo verificato in [censimento-prd.md](censimento-prd.md). In sintesi: **non due, ma quattro+ sistemi in PRD** — chatbot platform, HerbaMarketer, **PIM** (`pim.herbago.it`) e **OMS** (`oms.herbago.it`), oltre ai siti WordPress. PIM/OMS sono PHP 8.2 standalone, oggi **non integrati** con la AI platform → vanno esposti via Integrations Hub (no rewrite).
+
+Abbiamo **motori che già funzionano in produzione**. La strategia è unificarli, non reinventarli.
 
 **Motore 1 — Agent Runtime (chatbot):**
 - Fleet di microservizi FastAPI: `agent-products`, `agent-prices`, `agent-health`, `agent-distributor` (13 lingue), `agent-preferred-customer` (10 lingue), `agent-ecommerce` (live, fine-tuning)
@@ -76,7 +78,8 @@ Questi principi decidono ogni scelta successiva. Sono il vero contenuto da valid
 │  ├─ Marketing Engine (ex-HerbaMarketer: content, email, SEO)          │
 │  ├─ Identity/Customer Service (profili clienti, condiviso con app)    │
 │  ├─ Notification Service (in-app, email, WhatsApp)                    │
-│  └─ Integrations Hub (GA4, Google Ads, GSC, WordPress, ESP, Notion)   │
+│  └─ Integrations Hub (GA4, Google Ads, GSC, WordPress, ESP, Notion,   │
+│      PIM oms.herbago.it, OMS pim.herbago.it)                           │
 └───────────────────────────────┬──────────────────────────────────────┘
 ┌───────────────────────────────┴──────────────────────────────────────┐
 │  AI / AGENT RUNTIME (il differenziante, estraibile)                    │
@@ -126,7 +129,8 @@ Stato reale: **abbiamo già il cervello** (HerbaMarketer orchestra), gli ESP son
 - **Opzione C — tutto su Brevo:** meno ops ma costo scala coi contatti, meno sovrano.
 - **Opzione D — "costruire il nostro tool collegando account Gmail/Workspace":** ❌ **Sconsigliata per il nurturing di massa.** La deliverability (SPF/DKIM/DMARC, IP warming, reputazione, bounce, unsubscribe GDPR) è un problema risolto e brutale da ricostruire; Gmail ha limiti ~500/giorno e penalizza l'invio massivo. **Però** — il layer che conta (logica, dati, relazione col cliente) lo possediamo già. Per il **cold outreach/recruiting 1:1** Workspace + tool di warmup è legittimo, ma **separato** dal nurturing.
 
-**Raccomandazione CTO:** **non costruire l'invio**, costruire/possedere l'orchestrazione (già fatto). Razionalizzare il braccio: **consolidare su un Mautic unico** + Brevo solo dove vince sul transazionale. L'astrazione ESP in HerbaMarketer rende l'invio una commodity intercambiabile. 🟦 **Decisione team.**
+**Raccomandazione CTO:** **non costruire l'invio**, costruire/possedere l'orchestrazione (già fatto). Razionalizzare il braccio: **consolidare su un Mautic unico** + Brevo solo dove vince sul transazionale. L'astrazione ESP in HerbaMarketer rende l'invio una commodity intercambiabile.
+> ✅ **DECISO da Omar (2026-06-27): consolidare su un Mautic unico.** L'opzione "tool proprietario su Gmail" è scartata. Brevo resta solo dove vince sul transazionale.
 
 ### 5.4 Kanban + work management (owner agentici e umani)
 - ❌ **Non costruire un kanban da zero** ora. **Notion è già system-of-record** (HL Content Calendar, doppio flag approvazione).
@@ -191,9 +195,10 @@ Agente di punta sul runtime + work layer. Loop settimanale:
 ## 9. Roadmap fasata + obiettivi settimanali
 
 **Fase 0 — Allineamento (W27, questa→prossima settimana)** ← *adesso*
-- [ ] Finalizzare questo documento + agenda meeting Michele/Emiliano
-- [ ] Quick win a costo zero: aggiornare LiteLLM `opus-4-7 → 4.8`
-- [ ] Censimento onesto: cosa è davvero in PRD, cosa è prototipo, debito tecnico
+- [x] Finalizzare questo documento + agenda meeting Michele/Emiliano
+- [x] Quick win a costo zero: aggiornare LiteLLM `opus-4-7 → 4.8`
+- [~] **Censimento onesto: cosa è davvero in PRD, cosa è prototipo, debito tecnico** ← *in corso, primo step scelto da Omar*
+- [x] Decisione email/ESP confermata: un Mautic unico (2026-06-27)
 
 **Fase 1 — Fondamenta (W28–W30)**
 - Consolidamento repo `platform/` + `tenants/herbalife/`; spina dorsale Postgres multi-tenant
