@@ -45,6 +45,7 @@ Omar (CEO)
 
 ## Gestisce
 - Marketing Manager Herbalife → [board/cmo/reports/herbalife.md](reports/herbalife.md)
+- Marketing Manager Personal Brand (Omar Bortolato) → [board/cmo/reports/omar-website.md](reports/omar-website.md) — lead gen per AI Friday/Docbit/consulenze/speaking. Copre anche AI Friday (priorità alta come canale di conversione) e AI KmZero (correlato, priorità bassa, non ancora attivo)
 - Marketing Manager ai-triage
 - Marketing Manager Docbit (futuro)
 - Platform: `platform/marketing/`

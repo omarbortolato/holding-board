@@ -4,22 +4,28 @@
 
 ---
 
-## Settimana 2026-W23 (02–06 Giu)
+## Settimana 2026-W26 (22–26 Giu)
 
-### Obiettivo: Setup fondamenta marketing Herbalife
-
+### Obiettivo 1: Herbalife — chiusura onboarding e azione
 | Key Result | Target | Attuale | Status |
 |---|---|---|---|
-| Definire tone of voice Herbalife (documento) | Fatto | 🔵 Da fare | PLANNED |
-| Content calendar Giugno Herbalife | Draft | 🔵 Da fare | PLANNED |
-| Review KPI marketing attuali (Analytics) | Report | 🔵 Da fare | PLANNED |
+| Onboarding CMO Herbalife chiuso (risposte Omar) | Fatto | ✅ Fatto 2026-06-24 | DONE |
+| Strategia recruiting (a/b/c) consolidata su Notion | Fatto | ✅ Fatto | DONE |
+| Workflow content approval (Notion HL Content Calendar) | Creato | ✅ Creato, trigger pubblicazione da collegare | IN PROGRESS |
+
+### Obiettivo 2: Personal Brand — onboarding e lead gen tracking
+| Key Result | Target | Attuale | Status |
+|---|---|---|---|
+| Onboarding CMO Personal Brand chiuso | Fatto | ✅ Fatto 2026-06-27 | DONE |
+| Tracker "Opportunità & Lead" su Notion | Creato | ✅ Creato | DONE |
+| Ritual settimanale automatico (weekly-check.sh) | Live in crontab | ✅ Live, lunedì 6:20 | DONE |
 
 ---
 
 ## OKR Mensile — Giugno 2026
 
 **O1: Fondamenta marketing Herbalife**
-- KR1: Tone of voice document approvato da Omar
+- KR1: Tone of voice document approvato da Omar — ✅ fatto
 - KR2: Content calendar Q3 in draft
 - KR3: Baseline KPI (traffico, conversioni, email) stabilita
 
@@ -27,3 +33,8 @@
 - KR1: Struttura cartelle piattaforma marketing creata
 - KR2: Brand guidelines Herbalife documentate
 - KR3: Template email standard definiti (almeno 3)
+
+**O3: Personal Brand → lead generation B2B (nuovo, da onboarding 2026-06-27)**
+- KR1: Tracker Opportunità & Lead aggiornato ogni settimana da Omar
+- KR2: Almeno 1 lead AI Friday/Docbit/consulenza/speaking tracciato a settimana (baseline da validare)
+- KR3: Guida 1 (lead magnet gratuita "Come ho costruito questo sito con Claude Code") pubblicata
