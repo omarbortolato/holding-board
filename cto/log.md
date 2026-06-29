@@ -5,6 +5,19 @@
 
 ---
 
+## 2026-06-29 | REPORT | Meeting CTO↔CMO — scope/KPI/stack confermati, WhatsApp/OpenWA da chiarire con Omar
+**Contesto:** primo meeting CTO-CMO richiesto da Omar dopo chiusura onboarding CTO, per allineare la strategia piattaforma (platform-strategy.md) con le esigenze marketing (dossier CMO Herbalife + Personal Brand).
+**Confermato lato CTO (nessuna azione richiesta al CMO):**
+- Pipeline content gen (5.2) compatibile al 100% col workflow Notion "HL Content Calendar" esistente — gate doppio flag Omar+Emiliano resta l'human-in-the-loop su cui si costruisce anche il Marketing Manager autonomo (5.5)
+- Email: confermato un Mautic unico (deciso 27/06) — nessuna azione CMO, lavoro infra Fase 1
+- Kanban: confermato Notion-as-SoR, agent task-runner in Fase 3 (W35-38), non prima
+- KPI marketing: GSC/Ads/Brevo trackabili subito; GA4 centralizzato, open/click Mautic aggregato, funnel conversione chatbot→lead e lead gen recruiting richiedono lavoro — consolidare Mautic prima di costruire il cruscotto email
+**Nuovo tema — WhatsApp via OpenWA (richiesta Omar 2026-06-29):**
+- Raccomandazione CTO: OpenWA accettabile **solo** come canale interno (notifiche team, es. sostituire/affiancare il bot Telegram di HerbaMarketer), su numero dedicato non critico. **Mai** per comunicazione con clienti/distributori esterni — per quell'uso serve WhatsApp Business API ufficiale (Meta/Twilio/360dialog), unica conforme ai ToS e a compliance GDPR.
+- **CISO da coinvolgere prima di adottare OpenWA** — vedi richiesta aperta in ciso/log.md. Motivo: Herbalife ha già un alert di sicurezza apert​o (rotazione credenziali, secrets GitLab) e un wrapper non ufficiale con sessione WhatsApp persistente aggiunge superficie di rischio su un'infrastruttura già con debito aperto.
+- **Ambiguità da chiarire con Omar:** il dossier CMO Herbalife cita "Email + WhatsApp (da fare)" verso clienti del programma Cliente Privilegiato — uso esterno. Se questo è l'intento reale, OpenWA non è lo strumento giusto: va usata WhatsApp Business API ufficiale. Need: Omar chiarisce se WhatsApp/OpenWA è solo per comunicazione interna team→team o anche per i clienti.
+**Prossimo:** Omar chiarisce lo scope d'uso WhatsApp; CISO valuta OpenWA per l'uso interno nel frattempo.
+
 ## 2026-06-27 | REPORT | Documento Notion per meeting Michele/Emiliano + pulizia doc stale
 **Output:** [Strategia Piattaforma Herbago — CTO (2026-06-27)](https://app.notion.com/p/38cef582d2598188b405f42bc7ab96d4) — sotto "Herbalife Home", sintesi condivisibile di strategia + censimento + alert sicurezza, con agenda meeting.
 **Pulizia autonoma (azione minore, non rischiosa):** rimossi ovunque i riferimenti agli agenti phantom `agent-products/prices/health` (8010-8012, mai esistiti nel codice) da CLAUDE.md, board/cto/AGENT.md, board/cto/reports/herbalife.md, projects/herbalife.md, strategy/platform-strategy.md. Committato anche il quick win LiteLLM opus-4-7→4.8 (editato in sessione precedente, non ancora commitato).

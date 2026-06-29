@@ -89,10 +89,11 @@ Da costruire: **pagina/portale di supporto distributori** che aggrega tutti gli 
 
 ## Prossime azioni operative (non ancora fatte)
 
-1. ⏸️ **Meeting CTO su HerbaMarketer — RIMANDATO**: onboarding CTO non ancora completo (5 domande aperte in `board/cto/reports/herbalife.md`, OKR ancora "da confermare"). Da fissare appena Omar chiude l'onboarding CTO.
+1. ✅ **Meeting CTO↔CMO tenuto (2026-06-29)** — onboarding CTO chiuso il 26/06, meeting svolto. Esito: workflow Notion confermato compatibile con la strategia piattaforma, nessuna modifica richiesta al CMO. Verbale completo in [board/cto/log.md](/root/board/cto/log.md) e [board/cmo/log.md](/root/board/cmo/log.md).
 2. Costruire funnel di followup su hl-distributor.com/it (oggi assente)
-3. Collegare il trigger Notion → pubblicazione (n8n/HerbaMarketer) per il flag doppia approvazione
+3. Collegare il trigger Notion → pubblicazione (n8n/HerbaMarketer) per il flag doppia approvazione — **lavoro CTO**, in roadmap Fase 1-2 (W28-W34), nessuna azione CMO richiesta
 4. Disegnare struttura pagina/portale eventi distributori
+5. 🆕 **WhatsApp/OpenWA come canale Herbalife (richiesta Omar 2026-06-29)** — in attesa di review CISO (richiesta aperta in ciso/log.md) e di chiarimento con Omar: è solo per notifiche team interne (CTO raccomanda di limitarsi a questo, sostituendo/affiancando il bot Telegram di HerbaMarketer) o anche per comunicare con i clienti del programma Cliente Privilegiato (in quel caso serve WhatsApp Business API ufficiale, non OpenWA)?
 
 ---
 

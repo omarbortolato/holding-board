@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-06-29 | REQUEST | Review sicurezza OpenWA prima dell'adozione (canale WhatsApp Herbalife)
+
+**Richiedente:** CTO, dopo meeting con CMO (verbale completo in cto/log.md e cmo/log.md, stessa data).
+
+**Contesto:** Omar ha chiesto di adottare **OpenWA** (https://github.com/rmyndharis/OpenWA — wrapper non ufficiale su WhatsApp Web) come canale di comunicazione per Herbalife, in sostituzione/affiancamento al bot Telegram di HerbaMarketer usato oggi per le notifiche di approvazione contenuti.
+
+**Raccomandazione CTO già data:** procedere solo per uso **interno** (notifiche team), mai per comunicazione con clienti/distributori esterni (per quello serve WhatsApp Business API ufficiale Meta/Twilio/360dialog). Numero dedicato, non un account critico.
+
+**Cosa serve da te prima del via libera:**
+1. Valutare il rischio di tenere una sessione WhatsApp autenticata (token/cookie persistenti) su un'infrastruttura che ha già un alert aperto su rotazione credenziali e secrets esposti su GitLab (vedi la tua entry precedente) — è prudente farlo in parallelo o va prima chiuso quel debito?
+2. Definire dove e come va custodita la sessione OpenWA (equivalente a una credenziale, va trattata come tale: non in chiaro, non nel repo)
+3. Confermare se serve un audit prima del go-live anche per questo nuovo componente
+
+**Ambiguità ancora aperta con Omar (non bloccante per la tua review, ma da tenere a mente):** se in futuro Omar vuole estendere WhatsApp ai clienti (es. programma Cliente Privilegiato, oggi "Email + WhatsApp da fare" nel dossier CMO), la superficie di rischio e gli obblighi GDPR cambiano completamente — quella circostanza richiederà una review separata.
+
+---
+
 ## 2026-06-29 | CHECK | Controllo settimanale — WARNING (header sicurezza incompleti su 9/10 siti)
 
 **Status:** check settimanale eseguito da locale (sessione interattiva). Nessun ALERT. Risultato complessivo: **WARNING** (stesso pattern della settimana scorsa).

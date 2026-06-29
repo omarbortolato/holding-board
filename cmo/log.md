@@ -5,6 +5,11 @@
 
 ---
 
+## 2026-06-29 | REPORT | Meeting CMO↔CTO — stack/scope/KPI confermati, WhatsApp/OpenWA in attesa CISO+Omar
+**Contesto:** primo meeting con il CTO dopo chiusura del suo onboarding, su richiesta di Omar. Verbale completo: [board/cto/log.md](../cto/log.md) (stessa entry).
+**Esito per il CMO:** nessuna modifica necessaria al workflow Notion già impostato (HL Content Calendar, doppio flag approvazione) — il CTO ci costruisce sopra il trigger automatico e il Marketing Manager autonomo. Email→un Mautic unico confermato. KPI subito disponibili: GSC, Ads, Brevo; da costruire: GA4 centralizzato, open/click Mautic aggregato, funnel chatbot→lead.
+**Nuovo tema aperto da Omar — WhatsApp/OpenWA per Herbalife:** il CTO raccomanda uso solo interno (notifiche team, non clienti) e chiede review CISO prima di adottarlo (vedi richiesta in ciso/log.md). Resta ambiguo se Omar intende WhatsApp anche per i clienti del programma Cliente Privilegiato (oggi "Email + WhatsApp da fare" nel dossier herbalife.md) — se sì, serve WhatsApp Business API ufficiale, non OpenWA. **Da chiarire con Omar.**
+
 ## 2026-06-29 | CHECK | Weekly check Personal Brand
 
 **Dati raccolti (script automatico):**
