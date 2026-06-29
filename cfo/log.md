@@ -4,6 +4,27 @@
 
 ---
 
+# ⚠️ ALERT — 2026-06-29: due siti HTTP 301 (verifica manuale richiesta)
+
+## 2026-06-29 | CHECK | Weekly check automatico — Herbalife
+
+**Dati raccolti automaticamente (non rieseguire):**
+
+| Sito | Status HTTP | Esito |
+|---|---|---|
+| herbashop.it | 200 | ✅ PASS |
+| hl-distributor.com | 301 | ⚠️ ALERT |
+| hlifeclienteprivilegiato.it | 301 | ⚠️ ALERT |
+
+**Dettaglio ALERT:** `hl-distributor.com` e `hlifeclienteprivilegiato.it` restituiscono HTTP 301 (Moved Permanently). Il server è attivo e risponde, ma non con 200. Per regola script: ALERT. Causa più probabile: redirect intenzionale (HTTP→HTTPS, www→non-www o simile) — non necessariamente un'interruzione del servizio. **Richiedere verifica manuale prima di escalare a Omar.**
+
+**Promemoria accesso Google Sheet (non verificabile in headless):**
+Controllo manuale richiesto: aggiornare baseline costi/ricavi da Google Sheet (link in `reports/herbalife.md`) — verificare in particolare se Google Ads ha superato la soglia di scostamento 10% rispetto al mese precedente, e se il gap royalties 2026 (Assegni a zero) è stato chiarito con Omar.
+
+**Esito complessivo settimana:** ⚠️ **ALERT** — due siti non restituiscono 200 (301 redirect, verifica manuale richiesta). Nessun dato economico verificabile in questa sessione headless.
+
+---
+
 ## 2026-06-27 | CORREZIONE | Gap royalties era un errore di lettura, non un dato mancante
 **Cosa è successo:** nella entry precedente di oggi avevo segnalato "Assegni a €0,00 per tutto il 2026" come gap dati. Era un errore: avevo letto solo la tabella "Ordini Diretti" (ecommerce), dove quella riga non si applica. Omar mi ha indicato la sezione corretta del tab "P&L 2026" (righe ~303-308).
 

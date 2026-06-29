@@ -4,6 +4,21 @@
 
 ---
 
+## Settimana 2026-W27 (29 Giu – 5 Lug)
+
+### Obiettivo: Monitoraggio settimanale infrastruttura e baseline Herbalife
+
+| Key Result | Target | Attuale | Status |
+|---|---|---|---|
+| Check HTTP siti Herbalife (herbashop.it, hl-distributor.com, hlifeclienteprivilegiato.it) | 200 su tutti | herbashop.it 200 ✅ / hl-distributor.com 301 ⚠️ / hlifeclienteprivilegiato.it 301 ⚠️ | ALERT — verifica manuale richiesta |
+| Aggiornamento baseline costi/ricavi giugno 2026 completo da Google Sheet | Dati giugno definitivi | da verificare con Omar (no accesso Drive in headless) | DA VERIFICARE |
+| Verifica scostamento Google Ads giugno vs maggio (soglia 10%) | <10% o alert emesso | da verificare con Omar — maggio ~€3.745, giugno parziale ~€2.702 (incompleto) | DA VERIFICARE |
+| Conferma gap royalties 2026 chiarito con Omar | Risposta Omar | da verificare — correzione fatta in log 2026-06-27, ma richiesta formale pendente | DA VERIFICARE |
+
+**Note W27:** Primo weekly check automatico post-onboarding. Due siti in 301 (ALERT per regola script, probabile redirect intenzionale — da verificare manualmente). Dati economici non aggiornabili in headless: richiedere sessione interattiva con Drive connector per chiudere giugno 2026.
+
+---
+
 ## Settimana 2026-W26 (22–28 Giu)
 
 ### Obiettivo: Onboarding Herbalife completato, baseline reale costruita
