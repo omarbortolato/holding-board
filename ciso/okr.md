@@ -4,6 +4,20 @@
 
 ---
 
+## Settimana 2026-W27 (29 Giu — 5 Lug)
+
+### Obiettivo: Check settimanale sicurezza + follow-up ALERT PIM/OMS
+
+| Key Result | Target | Attuale | Status |
+|---|---|---|---|
+| Certificati SSL Herbalife (10 domini) | Tutti >30gg | ✅ Tutti PASS — `herbago.it` e `hl-distributor.com` a 32 giorni (vicino soglia, certbot atteso rinnovare a breve) | DONE |
+| Security header HTTP base | Presenti su tutti i siti | ⚠️ Solo `herbago.info` li espone tutti correttamente. 9/10 siti mancano `X-Frame-Options`/`X-Content-Type-Options` — pattern identico a W26 bis. Discrepanza persistente da 2 settimane: priorità verifica Nginx Hetzner | WARNING persistente |
+| Rotazione credenziali PIM/OMS | Confermata da Omar | 🔴 ALERT aperto dal 2026-06-27 — in attesa di conferma Omar per rotazione FTP (prod+staging) e DB PIM. Nessuna azione autonoma (rischio elevato) | IN ATTESA |
+| Audit pratico manuale | <30gg dall'ultimo | ✅ Ultimo audit 2026-06-24, 5 giorni fa → entro soglia | OK |
+| Permessi push repo cloud | Concessi | ✅ Risolto — check questa settimana eseguito con push riuscito via SSH locale | DONE |
+
+---
+
 ## Settimana 2026-W26 bis (26 Giu, check infra-settimanale)
 
 ### Obiettivo: Check settimanale di sicurezza (SSL + header) — eseguito a mano per blocco push cloud

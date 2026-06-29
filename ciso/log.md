@@ -4,6 +4,53 @@
 
 ---
 
+## 2026-06-29 | CHECK | Controllo settimanale — WARNING (header sicurezza incompleti su 9/10 siti)
+
+**Status:** check settimanale eseguito da locale (sessione interattiva). Nessun ALERT. Risultato complessivo: **WARNING** (stesso pattern della settimana scorsa).
+
+**1. Scadenza certificati SSL** — tutti PASS, nessuno sotto i 30 giorni. Nota: `herbago.it` e `hl-distributor.com` sono a 32 giorni — entro soglia ma in avvicinamento al WARNING di 30 giorni. Certbot dovrebbe rinnovarli automaticamente nei prossimi giorni.
+
+| Dominio | Scadenza | Giorni rimanenti | Stato |
+|---|---|---|---|
+| herbago.info | 2026-09-21 | 84 | ✅ PASS |
+| herbago.it | 2026-07-31 | 32 | ✅ PASS (vicino soglia!) |
+| herbago.fr | 2026-08-18 | 50 | ✅ PASS |
+| herbago.de | 2026-09-12 | 75 | ✅ PASS |
+| herbago.co.uk | 2026-09-12 | 75 | ✅ PASS |
+| herbago.net | 2026-09-01 | 64 | ✅ PASS |
+| herbashop.it | 2026-08-15 | 47 | ✅ PASS |
+| hlifeclienteprivilegiato.it | 2026-09-05 | 68 | ✅ PASS |
+| hl-distributor.com | 2026-07-31 | 32 | ✅ PASS (vicino soglia!) |
+| hlifepreferredcustomer.com | 2026-08-16 | 48 | ✅ PASS |
+
+**2. Security header HTTP** (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`) — `curl -sIL` su ogni dominio (seguendo redirect):
+
+| Dominio | X-Frame-Options | X-Content-Type-Options | Referrer-Policy | Stato |
+|---|---|---|---|---|
+| herbago.info | ✅ SAMEORIGIN | ✅ nosniff | ✅ strict-origin-when-cross-origin | ✅ PASS |
+| herbago.it | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+| herbago.fr | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+| herbago.de | ❌ assente | ❌ assente | ⚠️ no-referrer-when-downgrade | ⚠️ WARNING |
+| herbago.co.uk | ❌ assente | ❌ assente | ⚠️ no-referrer-when-downgrade | ⚠️ WARNING |
+| herbago.net | ❌ assente | ❌ assente | ⚠️ no-referrer-when-downgrade | ⚠️ WARNING |
+| herbashop.it | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+| hlifeclienteprivilegiato.it | ❌ assente | ❌ assente | ⚠️ no-referrer-when-downgrade | ⚠️ WARNING |
+| hl-distributor.com | ❌ assente | ❌ assente | ⚠️ no-referrer-when-downgrade | ⚠️ WARNING |
+| hlifepreferredcustomer.com | ❌ assente | ❌ assente | ❌ assente | ⚠️ WARNING |
+
+Pattern identico alla settimana scorsa (2026-06-26): solo `herbago.info` espone correttamente tutti e 3 gli header. Gli altri 9 siti li mancano o li espongono in forma debole — coerente con l'ipotesi che la config Nginx sia applicata solo al virtual host `herbago.info` e non agli altri. **Non è un ALERT** (istruzione esplicita — possibile CDN/proxy intermedio), ma la discrepanza persiste da 2 settimane consecutive: suggerito controllo manuale sul server Hetzner della config Nginx per gli altri virtual host.
+
+**3. Controlli a livello di codice** (rate limiting, CORS, `.env` tracked): non eseguiti — repo GitLab privato non disponibile. Ultimo audit pratico manuale (`AUDIT`): 2026-06-24, **5 giorni fa** → entro soglia 30 giorni.
+
+**4. ALERT aperto (da 2026-06-27):** segreti committati in GitLab PIM/OMS — in attesa di conferma Omar per rotazione credenziali. Nessuna azione autonoma intrapresa (rischio elevato, regola DELEGATED).
+
+**Azioni suggerite per Omar:**
+- Verificare su Hetzner config Nginx per virtual host `herbago.it`, `herbago.fr`, ecc. — perché i security header non risultano nelle risposte HTTP da qui ma sono documentati in SECURITY.md §6.
+- Controllare che certbot abbia rinnovato (o stia per rinnovare) `herbago.it` e `hl-distributor.com` — entrambi a 32 giorni, soglia WARNING a 30 giorni.
+- Confermare rotazione credenziali PIM/OMS (ALERT 2026-06-27 ancora aperto).
+
+---
+
 ## 2026-06-27 | ALERT | Segreti committati nei repo GitLab PIM/OMS (da CTO)
 **Contesto:** durante il censimento piattaforma, il CTO ha clonato `gitlab.com/herbago/oms-herbago` e `gitlab.com/herbago/pim-herbago` per valutare le API e ha rilevato credenziali in chiaro versionate.
 **Finding:**
