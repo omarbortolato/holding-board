@@ -1,0 +1,95 @@
+{
+  "lastUpdated": "2026-06-06",
+  "holdingName": "AI Holding Board",
+  "weeklyFocus": "Focus totale su Herbalife — agent-ecommerce in chiusura",
+  "board": [
+    {
+      "role": "CMO",
+      "fullName": "Chief Marketing Officer",
+      "status": "planned",
+      "autonomy": "supervised",
+      "currentFocus": "Setup fondamenta marketing Herbalife",
+      "health": null,
+      "okrCompletion": 0
+    },
+    {
+      "role": "CTO",
+      "fullName": "Chief Technology Officer",
+      "status": "in-progress",
+      "autonomy": "supervised",
+      "currentFocus": "agent-ecommerce + struttura holding",
+      "health": null,
+      "okrCompletion": 40
+    },
+    {
+      "role": "COO",
+      "fullName": "Chief Operating Officer",
+      "status": "planned",
+      "autonomy": "supervised",
+      "currentFocus": "Mappare processi operativi Herbalife",
+      "health": null,
+      "okrCompletion": 0
+    },
+    {
+      "role": "CFO",
+      "fullName": "Chief Financial Officer",
+      "status": "planned",
+      "autonomy": "supervised",
+      "currentFocus": "Prima fotografia finanziaria holding",
+      "health": null,
+      "okrCompletion": 0
+    },
+    {
+      "role": "CISO",
+      "fullName": "Chief Information Security Officer",
+      "status": "planned",
+      "autonomy": "supervised",
+      "currentFocus": "Audit security baseline Herbalife",
+      "health": null,
+      "okrCompletion": 0
+    }
+  ],
+  "projects": [
+    {
+      "id": "herbalife",
+      "name": "Herbalife",
+      "status": "active",
+      "priority": "high",
+      "description": "Piattaforma AI ecommerce + cliente privilegiato + downline",
+      "health": 72,
+      "agents": [
+        { "name": "agent-products", "port": 8010, "status": "prd" },
+        { "name": "agent-prices", "port": 8011, "status": "prd" },
+        { "name": "agent-health", "port": 8012, "status": "prd" },
+        { "name": "agent-distributor", "port": 8013, "status": "prd" },
+        { "name": "agent-preferred-customer", "port": 8014, "status": "prd" },
+        { "name": "agent-ecommerce", "port": 8015, "status": "dev" },
+        { "name": "drive-indexer", "port": 8030, "status": "prd" }
+      ]
+    },
+    {
+      "id": "ai-triage",
+      "name": "ai-triage",
+      "status": "mvp",
+      "priority": "low",
+      "description": "MVP triage AI con STT/TTS per customer care voce",
+      "health": 45,
+      "agents": []
+    },
+    {
+      "id": "docbit",
+      "name": "Docbit",
+      "status": "planned",
+      "priority": "tbd",
+      "description": "In arrivo — da onboardare",
+      "health": null,
+      "agents": []
+    }
+  ],
+  "platform": [
+    { "name": "chatbot-base", "owner": "CTO", "status": "partial" },
+    { "name": "marketing-engine", "owner": "CMO+CTO", "status": "planned" },
+    { "name": "analytics", "owner": "COO+CFO", "status": "planned" },
+    { "name": "security", "owner": "CISO+CTO", "status": "planned" }
+  ]
+}

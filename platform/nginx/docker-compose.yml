@@ -1,0 +1,40 @@
+# Reverse proxy condiviso — platform/nginx
+#
+# Servizio cross-progetto: serve herbago.info / chat.herbago.info (herbalife)
+# e soldi.omarbortolato.it (finanza). Si collega alla rete Docker del progetto
+# herbalife (dove vivono concierge/analytics) e raggiunge servizi sull'host
+# (es. dashboard finanza su porta 3001) via host.docker.internal.
+
+services:
+  nginx:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - certbot-certs:/etc/letsencrypt:ro
+      - certbot-webroot:/var/www/certbot
+      - widget-dist:/var/www/widget:ro
+      - /root/herbalife/services/portal:/var/www/portal:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    networks:
+      - platform
+
+volumes:
+  certbot-certs:
+    external: true
+    name: herbalife_certbot-certs
+  certbot-webroot:
+    external: true
+    name: certbot-webroot
+  widget-dist:
+    external: true
+    name: herbalife_widget-dist
+
+networks:
+  platform:
+    external: true
+    name: herbalife_platform
