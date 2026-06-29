@@ -19,6 +19,12 @@
 
 **Ambiguità ancora aperta con Omar (non bloccante per la tua review, ma da tenere a mente):** se in futuro Omar vuole estendere WhatsApp ai clienti (es. programma Cliente Privilegiato, oggi "Email + WhatsApp da fare" nel dossier CMO), la superficie di rischio e gli obblighi GDPR cambiano completamente — quella circostanza richiederà una review separata.
 
+**Aggiornamento 2026-06-29 — ambiguità risolta, scope ora è ESTERNO:** Omar ha confermato di voler usare OpenWA per comunicare anche con clienti/distributori, non solo internamente. Si assume personalmente il rischio operativo di ban account (basso traffico, no invii massivi). **Quello che NON ha coperto e che resta sul tuo tavolo:**
+1. Trattamento dati clienti via un canale non ufficiale — implicazioni GDPR (base giuridica, informativa, eventuale registro trattamenti) dato che oggi i clienti su WhatsApp saranno gestiti tramite un numero/sessione gestita da terze parti tecniche non contrattualizzate (a differenza di Brevo/Mautic)
+2. Custodia della sessione/credenziali OpenWA (token equivalente a una password, non va in chiaro né nel repo)
+3. Conferma se serve audit pre-go-live
+**Unica condizione posta da Omar:** numero dedicato (non più il suo personale) — da procurare prima del pairing, bloccante insieme alla tua review.
+
 ---
 
 ## 2026-06-29 | CHECK | Controllo settimanale — WARNING (header sicurezza incompleti su 9/10 siti)

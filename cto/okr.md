@@ -31,8 +31,10 @@
 | Allineamento Omar su decisioni forcanti (email/ESP, monorepo, app Emiliano) | Allineato | 🔵 Da fare | PLANNED |
 | Quick win: LiteLLM opus-4-7 → 4.8 | Fatto | 🟢 Editato (deploy manuale Hetzner) | DONE |
 | Sovereignty leak: piano per embeddings/immagini OpenAI | Identificato | 🟢 Documentato | DONE |
-| Censimento onesto PRD vs prototipo + debito tecnico | Fatto | 🔵 Da fare | PLANNED |
-| Agenda + materiale meeting Michele/Emiliano | Pronto | 🟡 Agenda nel doc (sez. 10) | IN PROGRESS |
+| Censimento onesto PRD vs prototipo + debito tecnico | Fatto | 🟢 FATTO — [strategy/censimento-prd.md](strategy/censimento-prd.md) | DONE |
+| Agenda + materiale meeting Michele/Emiliano | Pronto | 🟢 Doc + pagina Notion pubblicata | DONE |
+| Valutazione PIM/OMS dal codice (API esistenti) | Fatto | 🟢 OMS ha REST API, PIM no — vedi censimento §4 | DONE |
+| Valutazione canale WhatsApp (OpenWA, richiesta Omar 29/06) | Fatto | 🟢 Scope deciso (esterno, 1:1 assistito, no bulk) — manca numero dedicato + review CISO | IN PROGRESS |
 
 ---
 

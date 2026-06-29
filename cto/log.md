@@ -5,6 +5,21 @@
 
 ---
 
+## 2026-06-29 | REPORT | Valutazione tecnica OpenWA + risoluzione parziale ambiguità scope
+**Contesto:** in parallelo al meeting CTO↔CMO (entry sotto), Omar ha chiesto direttamente al CTO di "iniziare a inserire OpenWA nello stack" per il canale WhatsApp, descrivendo il caso d'uso come: comunicazione con i clienti, oggi fatta a mano, "alto tasso di risposta e fidelity". **Questo risolve l'ambiguità di scope lasciata aperta nell'entry sotto: l'intento di Omar è uso ESTERNO (clienti), non solo interno.**
+**Valutazione tecnica fatta (clonato il repo, letto risk register interno del progetto):**
+- OpenWA wrappa librerie non ufficiali (whatsapp-web.js / Baileys), non la Cloud API Meta. Il progetto stesso classifica il ban account al **50% di probabilità** (categoria Operational, non teorica).
+- Motore raccomandato se si procede: `whatsapp-web.js` (fingerprint browser reale, ban risk dichiarato più basso) invece di `baileys`, nonostante costo RAM maggiore — qui il rischio pesa più del risparmio.
+- Scaffold di deploy pronto in [herbalife/services/whatsapp-gateway/README.md](../../herbalife/services/whatsapp-gateway/README.md) — non attivato, deploy separato come HerbaMarketer, non aggiunto al docker-compose core.
+**Riconciliazione con la raccomandazione CTO↔CMO:** confermo la raccomandazione di non usare OpenWA per invii bulk automatici verso clienti — il ban (50%) qui costerebbe il canale a più alto tasso di risposta che abbiamo. Propongo una via di mezzo da validare con Omar: OpenWA in modalità **assistita** (AI prepara il messaggio, invio umano 1:1, basso volume, solo opt-in) per partire subito senza i tempi/costi di onboarding Meta Business API, mantenendo aperta la migrazione a API ufficiale se i volumi crescono.
+**Resta bloccante:** review CISO (richiesta aperta) + conferma esplicita di Omar su quale modalità adottare prima di procurare il numero dedicato e fare il pairing.
+
+**Aggiornamento 2026-06-29 (risposta di Omar):** confermato uso esterno (clienti/distributori). Omar si assume in prima persona il rischio di ban (50% indicato, accettato consapevolmente) — traffico basso, niente invii massivi, solo comunicazione 1:1. **Unica condizione posta da Omar: numero dedicato**, non userà più il personale per questo canale (oggi lo fa, va migrato). Procedere con:
+1. Procurare numero dedicato (SIM/eSIM separata) — bloccante prima del pairing
+2. Motore `whatsapp-web.js` come raccomandato (non baileys)
+3. **Review CISO resta necessaria** — non sul "se accettare il rischio di ban" (deciso da Omar), ma su custodia della sessione/credenziali e trattamento dati clienti via canale non ufficiale (GDPR) — vedi richiesta aperta in ciso/log.md, da aggiornare con questo contesto
+4. Deploy separato (scaffold già pronto in `herbalife/services/whatsapp-gateway/`), non nel docker-compose core, come HerbaMarketer
+
 ## 2026-06-29 | REPORT | Meeting CTO↔CMO — scope/KPI/stack confermati, WhatsApp/OpenWA da chiarire con Omar
 **Contesto:** primo meeting CTO-CMO richiesto da Omar dopo chiusura onboarding CTO, per allineare la strategia piattaforma (platform-strategy.md) con le esigenze marketing (dossier CMO Herbalife + Personal Brand).
 **Confermato lato CTO (nessuna azione richiesta al CMO):**

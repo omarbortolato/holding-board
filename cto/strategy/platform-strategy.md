@@ -154,6 +154,15 @@ Agente di punta sul runtime + work layer. Loop settimanale:
 - **Cockpit generico + per-ambito:** consumo/costi Claude (LiteLLM espone usage), costi infra Hetzner, traffico (GA4/GSC), spesa ads (Google Ads), security (CISO), interazioni (dashboard chat esistente).
 - ✅ **Raccomandato:** **Grafana + Prometheus + Loki** (sovrano) per infra/costi/traffico; dashboard business (marketing) nella console Next.js; conversazioni nella dashboard chat esistente. Un cost-tracker centrale con **alert a soglia €100/mese**.
 
+### 5.9 Canale WhatsApp (OpenWA) — richiesto da Omar, scope DECISO 2026-06-29
+Omar vuole un canale WhatsApp per i clienti (oggi gestito a mano, alto tasso di risposta/fidelity) e ha indicato [OpenWA](https://github.com/rmyndharis/OpenWA) — gateway self-hosted su librerie **non ufficiali** del protocollo WhatsApp Web (non la Cloud API Meta).
+- **Rischio reale, non teorico:** il progetto stesso classifica il ban account al 50% di probabilità. **Omar lo accetta consapevolmente.**
+- **Decisione presa:** uso esterno confermato, ma in modalità **assistita 1:1** — AI prepara il messaggio, invio umano singolo, niente bulk automatico. Questa modalità è proprio quella a rischio più basso (il ban è legato a pattern bulk/bot-like). Unica condizione: **numero dedicato**, mai il personale.
+- Motore da usare: `whatsapp-web.js` (non Baileys, ban risk dichiarato più basso).
+- Resta da chiudere: procurement numero dedicato (bloccante, non automatizzabile) + review CISO su custodia sessione/GDPR (non sul rischio di ban, già accettato da Omar).
+- Nota per il futuro: se i volumi cresceranno, rivalutare la migrazione a WhatsApp Business API ufficiale (Meta/Twilio/360dialog) — zero ban risk ma onboarding/costi maggiori.
+- Dettaglio tecnico e scaffold di deploy: [herbalife/services/whatsapp-gateway/README.md](../../../herbalife/services/whatsapp-gateway/README.md).
+
 ### 5.8 App clienti di Emiliano (integrazione)
 - L'app (gestione cliente interattiva, notifiche in-app, piano sviluppo, risultati, upsell distributori) deve essere **un client della piattaforma**, non un silo.
 - Prerequisiti architetturali che la abilitano: **Identity/Customer Service** condiviso (profili clienti), **Notification Service** (notifiche in-app + push), **API Gateway** con auth.
@@ -189,6 +198,7 @@ Agente di punta sul runtime + work layer. Loop settimanale:
 | App Emiliano si sviluppa in silo | Allineare API/data model in meeting W27, prima che diverga |
 | Tetto €100/mese saltato silenziosamente | Cost-tracker centrale + alert automatici a soglia |
 | Lock-in modelli/provider | LiteLLM come unico gateway, provider intercambiabile |
+| Ban account WhatsApp (50% prob. dichiarata, rischio accettato da Omar) | Modalità assistita 1:1 (no bulk automatico, già decisa) + numero dedicato + review CISO su custodia sessione; migrazione a API ufficiale se i volumi crescono |
 
 ---
 

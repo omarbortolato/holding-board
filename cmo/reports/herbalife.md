@@ -93,7 +93,7 @@ Da costruire: **pagina/portale di supporto distributori** che aggrega tutti gli 
 2. Costruire funnel di followup su hl-distributor.com/it (oggi assente)
 3. Collegare il trigger Notion → pubblicazione (n8n/HerbaMarketer) per il flag doppia approvazione — **lavoro CTO**, in roadmap Fase 1-2 (W28-W34), nessuna azione CMO richiesta
 4. Disegnare struttura pagina/portale eventi distributori
-5. 🆕 **WhatsApp/OpenWA come canale Herbalife (richiesta Omar 2026-06-29)** — in attesa di review CISO (richiesta aperta in ciso/log.md) e di chiarimento con Omar: è solo per notifiche team interne (CTO raccomanda di limitarsi a questo, sostituendo/affiancando il bot Telegram di HerbaMarketer) o anche per comunicare con i clienti del programma Cliente Privilegiato (in quel caso serve WhatsApp Business API ufficiale, non OpenWA)?
+5. 🆕 **WhatsApp/OpenWA per Cliente Privilegiato — scope confermato da Omar (2026-06-29):** uso esterno verso clienti/distributori (non solo notifiche interne team). Omar si assume personalmente il rischio operativo di ban (basso traffico, no invii massivi, no bulk). Condizione posta: numero dedicato (non più il personale di Omar). **Bloccante prima del go-live:** procurare il numero + review CISO su custodia credenziali/GDPR (richiesta aggiornata in ciso/log.md). Una volta sbloccato: questo chiude la voce "Email + WhatsApp (da fare)" della riga Cliente Privilegiato sopra — pianificare con CTO i contenuti/flussi 1:1 (oggi gestito a mano, "alto tasso di risposta e fidelity" secondo Omar).
 
 ---
 

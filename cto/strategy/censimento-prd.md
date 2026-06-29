@@ -19,6 +19,7 @@
 | 6 | **herbago.info** (home) | herbago.info (200) | da definire | — | — | 🟢 Live — **target console unificata** |
 | 7 | **Reverse proxy condiviso** | nginx | nginx, Docker | dentro herbie-server → `/root/platform/nginx/` | Hetzner | 🟢 PRD (cross-progetto) |
 | 8 | **platform/ holding** (chatbot/marketing/analytics/security) | — | — | board | — | 🔴 Solo README stub — **estrazione non fatta** |
+| 9 | **WhatsApp Gateway (OpenWA)** | wa.herbago.info (target) | Node/NestJS, self-hosted | `github.com/rmyndharis/OpenWA` (upstream, non vendorizzato) | scaffold pronto, non deployato | 🟡 SCOPE DECISO (uso esterno, modalità assistita 1:1, no bulk — Omar 2026-06-29) — bloccante: numero dedicato + review CISO su custodia sessione/GDPR. Vedi [herbalife/services/whatsapp-gateway/README.md] |
 
 **Nota deploy:** convivono **due metodi** — manuale `git pull` (herbie-server) e Coolify (HerbaMarketer). Da standardizzare su Coolify (vedi strategia).
 
