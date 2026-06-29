@@ -58,7 +58,7 @@ Costruire un holding AI multi-progetto dove agenti C-level autonomi gestiscono u
 |---|---|---|---|
 | CMO | 🟢 ACTIVE | 🔴 SUPERVISED | Canale WhatsApp/OpenWA per clienti Cliente Privilegiato (in attesa review CISO) |
 | CTO | 🟢 ACTIVE | 🔴 SUPERVISED | Architettura piattaforma herbago.info + valutazione tecnica OpenWA |
-| COO | 🔵 PLANNED | 🔴 SUPERVISED | Onboarding in corso (2026-06-29) |
+| COO | 🟢 ACTIVE | 🔴 SUPERVISED | Onboarding completato 2026-06-29: SLA v1 leggero fissato, scope/roadmap chiariti con Omar |
 | CFO | 🟢 ACTIVE | 🟡 DELEGATED (parziale) — onboarding completato 2026-06-27 | Weekly check automatico Herbalife |
 | CISO | 🟢 ACTIVE | 🟡 DELEGATED — onboarding completato 2026-06-26 | Security review OpenWA/GDPR per canale WhatsApp |
 
@@ -144,5 +144,6 @@ Costruire un holding AI multi-progetto dove agenti C-level autonomi gestiscono u
 
 | Data | Autore | Modifica |
 |---|---|---|
+| 2026-06-29 | Omar + Claude | Onboarding COO completato: SLA operativi v1 (leggeri, non vincolanti), scope chiarito (COO presidia processi/SLA/QA/incident, non la piattaforma), roadmap futura per drafting assistito email di supporto (invio sempre umano) |
 | 2026-06-26 | Omar + Claude | Priorità Herbalife chiarite: chatbot agents già maturi e live, agent-ecommerce non più "da chiudere"; tetto budget €100/mese; deploy authority su fix minori; test/CI-CD rimandati oltre Q3, da discutere con Michele ed Emiliano; strategia piattaforma herbago.info da definire con Opus |
 | 2026-06-06 | Omar + Claude | Setup iniziale struttura holding |
