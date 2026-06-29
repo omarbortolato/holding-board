@@ -66,9 +66,11 @@ Questo agente:
 
 | Cartella | Ruolo | Status |
 |---|---|---|
-| `ceo/` | Chief Executive Officer | 🔵 PLANNED |
-| `cmo/` | Chief Marketing Officer | 🔵 PLANNED |
-| `cto/` | Chief Technology Officer | 🟡 IN PROGRESS |
-| `coo/` | Chief Operating Officer | 🔵 PLANNED |
-| `cfo/` | Chief Financial Officer | 🔵 PLANNED |
-| `ciso/` | Chief Information Security Officer | 🔵 PLANNED |
+| `ceo/` | Chief Executive Officer | 🟢 ACTIVE (okr.md da risincronizzare, fermo a W23) |
+| `cmo/` | Chief Marketing Officer | 🟢 ACTIVE |
+| `cto/` | Chief Technology Officer | 🟢 ACTIVE |
+| `coo/` | Chief Operating Officer | 🔵 PLANNED — onboarding in corso (2026-06-29) |
+| `cfo/` | Chief Financial Officer | 🟢 ACTIVE — DELEGATED parziale (onboarding 2026-06-27) |
+| `ciso/` | Chief Information Security Officer | 🟢 ACTIVE — DELEGATED (onboarding 2026-06-26) |
+
+> Nota: questa tabella e quella in `/root/HOLDING.md` devono restare sincronizzate — aggiornarle insieme ogni volta che cambia lo status o l'autonomia di un agente (idealmente nel ritual del lunedì/venerdì).
