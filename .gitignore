@@ -1,3 +1,6 @@
 .cron-env
 cron.log
 cmo/.blog-post-count
+platform/nginx/board.htpasswd
+__pycache__/
+*.pyc

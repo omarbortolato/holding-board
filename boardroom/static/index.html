@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Boardroom — Sala del Board</title>
+<style>
+  :root{
+    --bg:#0f1216; --panel:#171b21; --panel2:#1d222a; --line:#272d37;
+    --text:#e7ebf0; --muted:#8b94a3; --accent:#e2b23a; --user:#2a3340;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--text); display:flex; height:100vh; overflow:hidden;
+  }
+  /* Sidebar */
+  aside{
+    width:300px; flex:0 0 300px; background:var(--panel); border-right:1px solid var(--line);
+    display:flex; flex-direction:column; min-height:0;
+  }
+  .brand{padding:18px 18px 12px; border-bottom:1px solid var(--line)}
+  .brand h1{font-size:16px; margin:0; letter-spacing:.3px}
+  .brand p{margin:4px 0 0; font-size:12px; color:var(--muted)}
+  .roster{flex:1; overflow:auto; padding:10px}
+  .roster h2{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:12px 8px 6px}
+  .agent{
+    display:flex; align-items:flex-start; gap:10px; padding:10px; border-radius:12px; cursor:pointer;
+    border:1px solid transparent; transition:.12s; user-select:none;
+  }
+  .agent:hover{background:var(--panel2)}
+  .agent.on{background:var(--panel2); border-color:var(--line)}
+  .avatar{
+    width:34px; height:34px; border-radius:10px; display:grid; place-items:center;
+    font-size:18px; flex:0 0 34px; background:#0d1015;
+  }
+  .agent .meta{min-width:0; flex:1}
+  .agent .meta .n{font-size:13.5px; font-weight:600}
+  .agent .meta .r{font-size:11.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .agent .dot{width:9px; height:9px; border-radius:50%; margin-top:6px; flex:0 0 9px; background:#333c48}
+  .agent.on .dot{box-shadow:0 0 0 3px rgba(255,255,255,.05)}
+  .controls{padding:12px 14px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
+  .controls .row{display:flex; align-items:center; justify-content:space-between; margin:6px 0}
+  .controls select{
+    background:var(--panel2); color:var(--text); border:1px solid var(--line); border-radius:8px;
+    padding:5px 8px; font-size:12.5px;
+  }
+  .controls .hint{font-size:11px; line-height:1.4; margin-top:6px}
+
+  /* Main */
+  main{flex:1; display:flex; flex-direction:column; min-width:0; min-height:0}
+  header{
+    padding:14px 22px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:12px;
+    background:var(--panel);
+  }
+  header .title{font-size:15px; font-weight:600}
+  header .who{font-size:12.5px; color:var(--muted); margin-left:auto; text-align:right}
+  #chat{flex:1; overflow:auto; padding:26px 22px; scroll-behavior:smooth}
+  .wrap{max-width:820px; margin:0 auto}
+  .empty{color:var(--muted); text-align:center; margin-top:14vh; font-size:14px; line-height:1.6}
+  .round-sep{display:flex; align-items:center; gap:10px; color:var(--muted); font-size:11px;
+    text-transform:uppercase; letter-spacing:.08em; margin:20px 0 8px}
+  .round-sep::before,.round-sep::after{content:""; flex:1; height:1px; background:var(--line)}
+  .msg{display:flex; gap:12px; margin:16px 0; align-items:flex-start}
+  .msg .av{width:32px; height:32px; border-radius:9px; display:grid; place-items:center; font-size:17px; flex:0 0 32px; background:#0d1015}
+  .msg .body{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:11px 14px; max-width:100%; line-height:1.55; font-size:14.5px; white-space:pre-wrap; word-wrap:break-word}
+  .msg .name{font-size:12px; font-weight:700; margin-bottom:3px}
+  .msg.user{flex-direction:row-reverse}
+  .msg.user .body{background:var(--user); border-color:#33404f}
+  .msg.user .av{background:#33404f}
+  .cursor{display:inline-block; width:7px; height:15px; background:var(--text); margin-left:2px;
+    vertical-align:-2px; animation:blink 1s steps(2) infinite; border-radius:1px}
+  @keyframes blink{50%{opacity:0}}
+
+  /* Composer */
+  .composer{border-top:1px solid var(--line); padding:14px 22px; background:var(--panel)}
+  .composer .inner{max-width:820px; margin:0 auto; display:flex; gap:10px; align-items:flex-end}
+  textarea{
+    flex:1; resize:none; background:var(--panel2); color:var(--text); border:1px solid var(--line);
+    border-radius:12px; padding:12px 14px; font:inherit; font-size:14.5px; max-height:160px; line-height:1.5;
+  }
+  textarea:focus{outline:none; border-color:#3a4453}
+  button.send{
+    background:var(--accent); color:#221c07; border:0; border-radius:12px; padding:12px 18px;
+    font-weight:700; font-size:14px; cursor:pointer; height:46px;
+  }
+  button.send:disabled{opacity:.5; cursor:not-allowed}
+  .composer .sub{max-width:820px; margin:6px auto 0; font-size:11.5px; color:var(--muted)}
+</style>
+</head>
+<body>
+  <aside>
+    <div class="brand">
+      <h1>🏛️ Boardroom</h1>
+      <p>Sala del Board · Holding AI</p>
+    </div>
+    <div class="roster">
+      <h2>Al tavolo</h2>
+      <div id="roster"></div>
+    </div>
+    <div class="controls">
+      <div class="row">
+        <span>Giri di dialogo</span>
+        <select id="rounds">
+          <option value="1">1 (risposta)</option>
+          <option value="2">2 (si rispondono)</option>
+          <option value="3">3 (dibattito)</option>
+        </select>
+      </div>
+      <div class="hint">Seleziona uno o più agenti. Con più agenti e più giri, dialogano anche tra loro.</div>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div class="title">Conversazione</div>
+      <div class="who" id="who">—</div>
+    </header>
+    <div id="chat">
+      <div class="wrap">
+        <div class="empty" id="empty">
+          Seleziona il <b>CMO</b> (o più agenti) dalla colonna a sinistra<br/>
+          e scrivi un messaggio per iniziare la riunione.
+        </div>
+      </div>
+    </div>
+    <div class="composer">
+      <div class="inner">
+        <textarea id="input" rows="1" placeholder="Scrivi al board…"></textarea>
+        <button class="send" id="send">Invia</button>
+      </div>
+      <div class="sub" id="status"></div>
+    </div>
+  </main>
+
+<script>
+const state = { agents: [], selected: new Set(), history: [], busy: false };
+const $ = s => document.querySelector(s);
+const chat = $('#chat'), wrap = chat.querySelector('.wrap');
+
+async function loadAgents(){
+  const r = await fetch('api/agents'); const d = await r.json();
+  state.agents = d.agents;
+  const box = $('#roster'); box.innerHTML = '';
+  state.agents.forEach(a => {
+    const el = document.createElement('div');
+    el.className = 'agent'; el.dataset.id = a.id;
+    el.innerHTML = `
+      <div class="avatar" style="color:${a.color}">${a.emoji}</div>
+      <div class="meta"><div class="n">${a.name}</div><div class="r">${a.role}</div></div>
+      <div class="dot"></div>`;
+    el.querySelector('.dot').style.background = 'transparent';
+    el.onclick = () => toggle(a.id, el);
+    box.appendChild(el);
+  });
+  // preseleziona il CMO se presente
+  const cmo = state.agents.find(a => a.id === 'cmo');
+  if (cmo) toggle('cmo', box.querySelector('[data-id="cmo"]'));
+}
+
+function toggle(id, el){
+  const a = state.agents.find(x => x.id === id);
+  if (state.selected.has(id)){ state.selected.delete(id); el.classList.remove('on'); el.querySelector('.dot').style.background=''; }
+  else { state.selected.add(id); el.classList.add('on'); el.querySelector('.dot').style.background = a.color; }
+  updateWho();
+}
+
+function updateWho(){
+  const sel = state.agents.filter(a => state.selected.has(a.id));
+  $('#who').textContent = sel.length ? sel.map(a => a.emoji + ' ' + a.name).join('  ') : 'Nessun agente al tavolo';
+}
+
+function scroll(){ chat.scrollTop = chat.scrollHeight; }
+
+function bubble({emoji,color,name,cls}){
+  $('#empty')?.remove();
+  const m = document.createElement('div');
+  m.className = 'msg ' + (cls||'');
+  m.innerHTML = `<div class="av" style="color:${color||''}">${emoji||''}</div>
+    <div><div class="name" style="color:${color||'var(--muted)'}">${name||''}</div>
+    <div class="body"></div></div>`;
+  wrap.appendChild(m);
+  return m.querySelector('.body');
+}
+
+async function send(){
+  const txt = $('#input').value.trim();
+  if (!txt || state.busy) return;
+  if (state.selected.size === 0){ $('#status').textContent = 'Seleziona almeno un agente.'; return; }
+
+  state.busy = true; $('#send').disabled = true; $('#input').value=''; autosize();
+  // messaggio utente
+  const ub = bubble({emoji:'🧑', name:'Tu', cls:'user'}); ub.textContent = txt;
+  state.history.push({author:'user', name:'Tu', content:txt});
+  scroll();
+
+  const payload = {
+    agents: state.agents.filter(a=>state.selected.has(a.id)).map(a=>a.id),
+    history: state.history,
+    rounds: parseInt($('#rounds').value, 10),
+  };
+
+  let body=null, cursor=null, curRound=0;
+  try{
+    const resp = await fetch('api/chat', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+    });
+    const reader = resp.body.getReader(); const dec = new TextDecoder();
+    let buf='';
+    while(true){
+      const {value, done} = await reader.read(); if (done) break;
+      buf += dec.decode(value, {stream:true});
+      let idx;
+      while((idx = buf.indexOf('\n\n')) >= 0){
+        const line = buf.slice(0, idx).trim(); buf = buf.slice(idx+2);
+        if (!line.startsWith('data:')) continue;
+        const ev = JSON.parse(line.slice(5).trim());
+        if (ev.type === 'agent_start'){
+          if (payload.rounds > 1 && ev.round !== curRound){
+            curRound = ev.round;
+            const sep = document.createElement('div');
+            sep.className='round-sep'; sep.textContent = 'Giro ' + ev.round;
+            wrap.appendChild(sep);
+          }
+          body = bubble({emoji:ev.emoji, color:ev.color, name:ev.name});
+          cursor = document.createElement('span'); cursor.className='cursor';
+          body.appendChild(cursor);
+          $('#status').textContent = ev.name + ' sta scrivendo…';
+        } else if (ev.type === 'delta'){
+          cursor?.remove();
+          body.append(document.createTextNode(ev.text));
+          if (cursor) body.appendChild(cursor);
+          scroll();
+        } else if (ev.type === 'agent_end'){
+          cursor?.remove();
+          const a = state.agents.find(x=>x.id===ev.agent);
+          state.history.push({author:ev.agent, name:a?.name||ev.agent, content:ev.content});
+        } else if (ev.type === 'error'){
+          $('#status').textContent = 'Errore: ' + ev.message;
+        } else if (ev.type === 'done'){
+          $('#status').textContent = '';
+        }
+      }
+    }
+  }catch(e){ $('#status').textContent = 'Errore di rete: ' + e.message; }
+  finally{ cursor?.remove(); state.busy=false; $('#send').disabled=false; $('#input').focus(); scroll(); }
+}
+
+function autosize(){ const t=$('#input'); t.style.height='auto'; t.style.height=Math.min(t.scrollHeight,160)+'px'; }
+$('#input').addEventListener('input', autosize);
+$('#input').addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); }});
+$('#send').onclick = send;
+loadAgents();
+</script>
+</body>
+</html>
