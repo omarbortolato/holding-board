@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "holdingName": "AI Holding",
+    "weeklyFocus": "Focus totale su Herbalife — chatbot agents in PRD, strategia piattaforma herbago.info",
+    "lastUpdated": "2026-07-02",
+    "budgetMonthlyCents": 10000,
+    "spentMonthlyCents": 3120,
+    "telemetrySource": "seed",
+    "telemetryNote": "Le run/issue/serie temporali sono dati di esempio finché gli agenti C-level non emettono telemetria reale. Stato agenti, aziende, porte e autonomia sono reali."
+  },
+  "agents": [
+    {
+      "id": "ceo", "role": "CEO", "title": "Chief Executive Officer", "reportsTo": null,
+      "status": "idle", "autonomy": "supervised", "budgetCents": 3000, "spentCents": 640,
+      "currentFocus": "Coordinamento board, strategia holding multi-progetto",
+      "latestRun": { "id": "2fc1b863", "status": "succeeded", "trigger": "timer", "agoText": "2h fa",
+        "message": "No assignments, no mentions, no approvals. Nothing actionable. Exiting heartbeat." },
+      "charts": {
+        "runActivity": [ {"d":"6/19","ok":2,"fail":0},{"d":"6/20","ok":3,"fail":0},{"d":"6/21","ok":1,"fail":1},{"d":"6/22","ok":4,"fail":0},{"d":"6/23","ok":3,"fail":0},{"d":"6/24","ok":2,"fail":0},{"d":"6/25","ok":3,"fail":1},{"d":"6/26","ok":4,"fail":0},{"d":"6/27","ok":2,"fail":0},{"d":"6/28","ok":1,"fail":0},{"d":"6/29","ok":3,"fail":0},{"d":"6/30","ok":2,"fail":0},{"d":"7/1","ok":3,"fail":0},{"d":"7/2","ok":1,"fail":0} ],
+        "priority": { "critical": 0, "high": 2, "medium": 3, "low": 1 },
+        "status": { "done": 9, "in_progress": 1, "in_review": 0, "blocked": 0 },
+        "successRate": [ {"d":"6/19","ok":100},{"d":"6/20","ok":100},{"d":"6/21","ok":50},{"d":"6/22","ok":100},{"d":"6/23","ok":100},{"d":"6/24","ok":100},{"d":"6/25","ok":75},{"d":"6/26","ok":100},{"d":"6/27","ok":100},{"d":"6/28","ok":100},{"d":"6/29","ok":100},{"d":"6/30","ok":100},{"d":"7/1","ok":100},{"d":"7/2","ok":100} ]
+      },
+      "recentIssues": [
+        {"key":"HLD-42","title":"Bozza architettura piattaforma herbago.info multi-progetto","status":"in_progress"},
+        {"key":"HLD-39","title":"Report Paperclip vs HOLDING — roadmap upgrade","status":"done"},
+        {"key":"HLD-31","title":"Onboarding COO: SLA v1 e scope","status":"done"},
+        {"key":"HLD-28","title":"Definire tetto budget infra €100/mese","status":"done"}
+      ]
+    },
+    {
+      "id": "cmo", "role": "CMO", "title": "Chief Marketing Officer", "reportsTo": "ceo",
+      "status": "running", "autonomy": "supervised", "budgetCents": 2000, "spentCents": 910,
+      "currentFocus": "Canale WhatsApp/OpenWA clienti Cliente Privilegiato + UI agente marketing",
+      "latestRun": { "id": "a7d10f22", "status": "running", "trigger": "manual", "agoText": "ora",
+        "message": "Elaborazione piano canale WhatsApp + bozza single-point-of-access console." },
+      "charts": {
+        "runActivity": [ {"d":"6/19","ok":1,"fail":0},{"d":"6/20","ok":2,"fail":0},{"d":"6/21","ok":2,"fail":0},{"d":"6/22","ok":3,"fail":1},{"d":"6/23","ok":2,"fail":0},{"d":"6/24","ok":4,"fail":0},{"d":"6/25","ok":3,"fail":0},{"d":"6/26","ok":5,"fail":1},{"d":"6/27","ok":4,"fail":0},{"d":"6/28","ok":3,"fail":0},{"d":"6/29","ok":4,"fail":0},{"d":"6/30","ok":5,"fail":0},{"d":"7/1","ok":6,"fail":1},{"d":"7/2","ok":3,"fail":0} ],
+        "priority": { "critical": 1, "high": 3, "medium": 2, "low": 2 },
+        "status": { "done": 6, "in_progress": 2, "in_review": 1, "blocked": 1 },
+        "successRate": [ {"d":"6/19","ok":100},{"d":"6/20","ok":100},{"d":"6/21","ok":100},{"d":"6/22","ok":75},{"d":"6/23","ok":100},{"d":"6/24","ok":100},{"d":"6/25","ok":100},{"d":"6/26","ok":83},{"d":"6/27","ok":100},{"d":"6/28","ok":100},{"d":"6/29","ok":100},{"d":"6/30","ok":100},{"d":"7/1","ok":86},{"d":"7/2","ok":100} ]
+      },
+      "recentIssues": [
+        {"key":"CMO-14","title":"Single point of access: console governance C-level","status":"in_progress"},
+        {"key":"CMO-12","title":"Piano canale WhatsApp clienti Cliente Privilegiato","status":"in_review"},
+        {"key":"CMO-09","title":"Marketing calendar Q3 Herbalife","status":"in_progress"},
+        {"key":"CMO-05","title":"Ton of voice agenti — allineamento memoria","status":"done"},
+        {"key":"CMO-02","title":"Attesa review CISO su OpenWA/GDPR","status":"blocked"}
+      ]
+    },
+    {
+      "id": "cto", "role": "CTO", "title": "Chief Technology Officer", "reportsTo": "ceo",
+      "status": "idle", "autonomy": "supervised", "budgetCents": 3000, "spentCents": 1180,
+      "currentFocus": "Architettura piattaforma herbago.info + valutazione tecnica OpenWA + console",
+      "latestRun": { "id": "9b41ccde", "status": "succeeded", "trigger": "assignment", "agoText": "1h fa",
+        "message": "Analisi Paperclip completata, report P0-P3 in board/cto/reports. Prossimo: console governance." },
+      "charts": {
+        "runActivity": [ {"d":"6/19","ok":3,"fail":0},{"d":"6/20","ok":4,"fail":1},{"d":"6/21","ok":3,"fail":0},{"d":"6/22","ok":5,"fail":0},{"d":"6/23","ok":4,"fail":0},{"d":"6/24","ok":3,"fail":1},{"d":"6/25","ok":4,"fail":0},{"d":"6/26","ok":5,"fail":0},{"d":"6/27","ok":3,"fail":0},{"d":"6/28","ok":2,"fail":0},{"d":"6/29","ok":4,"fail":0},{"d":"6/30","ok":3,"fail":0},{"d":"7/1","ok":4,"fail":0},{"d":"7/2","ok":3,"fail":0} ],
+        "priority": { "critical": 1, "high": 4, "medium": 3, "low": 1 },
+        "status": { "done": 11, "in_progress": 2, "in_review": 0, "blocked": 0 },
+        "successRate": [ {"d":"6/19","ok":100},{"d":"6/20","ok":80},{"d":"6/21","ok":100},{"d":"6/22","ok":100},{"d":"6/23","ok":100},{"d":"6/24","ok":75},{"d":"6/25","ok":100},{"d":"6/26","ok":100},{"d":"6/27","ok":100},{"d":"6/28","ok":100},{"d":"6/29","ok":100},{"d":"6/30","ok":100},{"d":"7/1","ok":100},{"d":"7/2","ok":100} ]
+      },
+      "recentIssues": [
+        {"key":"CTO-51","title":"Console governance C-level (static, herbago.info)","status":"in_progress"},
+        {"key":"CTO-49","title":"Roadmap upgrade da modello Paperclip","status":"done"},
+        {"key":"CTO-45","title":"agent-ecommerce in PRD, fine-tuning continuo","status":"in_progress"},
+        {"key":"CTO-40","title":"Valutazione tecnica OpenWA per canale WhatsApp","status":"done"}
+      ]
+    },
+    {
+      "id": "coo", "role": "COO", "title": "Chief Operating Officer", "reportsTo": "ceo",
+      "status": "idle", "autonomy": "delegated", "budgetCents": 1500, "spentCents": 210,
+      "currentFocus": "Documentare processi operativi Herbalife, SLA v1",
+      "latestRun": { "id": "c2e88a01", "status": "succeeded", "trigger": "timer", "agoText": "5h fa",
+        "message": "SLA v1 leggero fissato. Nessun incident aperto. Exiting heartbeat." },
+      "charts": {
+        "runActivity": [ {"d":"6/19","ok":1,"fail":0},{"d":"6/20","ok":1,"fail":0},{"d":"6/21","ok":2,"fail":0},{"d":"6/22","ok":1,"fail":0},{"d":"6/23","ok":2,"fail":0},{"d":"6/24","ok":1,"fail":0},{"d":"6/25","ok":2,"fail":0},{"d":"6/26","ok":1,"fail":0},{"d":"6/27","ok":2,"fail":0},{"d":"6/28","ok":1,"fail":0},{"d":"6/29","ok":3,"fail":0},{"d":"6/30","ok":2,"fail":0},{"d":"7/1","ok":1,"fail":0},{"d":"7/2","ok":2,"fail":0} ],
+        "priority": { "critical": 0, "high": 1, "medium": 3, "low": 3 },
+        "status": { "done": 5, "in_progress": 1, "in_review": 0, "blocked": 0 },
+        "successRate": [ {"d":"6/19","ok":100},{"d":"6/20","ok":100},{"d":"6/21","ok":100},{"d":"6/22","ok":100},{"d":"6/23","ok":100},{"d":"6/24","ok":100},{"d":"6/25","ok":100},{"d":"6/26","ok":100},{"d":"6/27","ok":100},{"d":"6/28","ok":100},{"d":"6/29","ok":100},{"d":"6/30","ok":100},{"d":"7/1","ok":100},{"d":"7/2","ok":100} ]
+      },
+      "recentIssues": [
+        {"key":"COO-18","title":"Mappare processi operativi Herbalife","status":"in_progress"},
+        {"key":"COO-15","title":"SLA v1 leggero (non vincolante)","status":"done"},
+        {"key":"COO-11","title":"Playbook incident support","status":"done"}
+      ]
+    },
+    {
+      "id": "cfo", "role": "CFO", "title": "Chief Financial Officer", "reportsTo": "ceo",
+      "status": "idle", "autonomy": "delegated", "budgetCents": 1000, "spentCents": 95,
+      "currentFocus": "Weekly check automatico Herbalife, prima P&L piattaforma",
+      "latestRun": { "id": "f7a9b3d5", "status": "succeeded", "trigger": "routine", "agoText": "1g fa",
+        "message": "Weekly check Herbalife eseguito. Spesa infra sotto tetto €100. Nessun alert." },
+      "charts": {
+        "runActivity": [ {"d":"6/19","ok":1,"fail":0},{"d":"6/20","ok":0,"fail":0},{"d":"6/21","ok":1,"fail":0},{"d":"6/22","ok":1,"fail":0},{"d":"6/23","ok":0,"fail":0},{"d":"6/24","ok":1,"fail":0},{"d":"6/25","ok":1,"fail":0},{"d":"6/26","ok":1,"fail":0},{"d":"6/27","ok":1,"fail":0},{"d":"6/28","ok":0,"fail":0},{"d":"6/29","ok":1,"fail":0},{"d":"6/30","ok":1,"fail":0},{"d":"7/1","ok":1,"fail":0},{"d":"7/2","ok":0,"fail":0} ],
+        "priority": { "critical": 0, "high": 1, "medium": 2, "low": 1 },
+        "status": { "done": 4, "in_progress": 1, "in_review": 0, "blocked": 0 },
+        "successRate": [ {"d":"6/19","ok":100},{"d":"6/20","ok":100},{"d":"6/21","ok":100},{"d":"6/22","ok":100},{"d":"6/23","ok":100},{"d":"6/24","ok":100},{"d":"6/25","ok":100},{"d":"6/26","ok":100},{"d":"6/27","ok":100},{"d":"6/28","ok":100},{"d":"6/29","ok":100},{"d":"6/30","ok":100},{"d":"7/1","ok":100},{"d":"7/2","ok":100} ]
+      },
+      "recentIssues": [
+        {"key":"CFO-20","title":"Prima P&L Herbalife AI platform","status":"in_progress"},
+        {"key":"CFO-17","title":"Weekly check automatico Herbalife","status":"done"},
+        {"key":"CFO-13","title":"Budget hard-stop: proposta enforcement","status":"done"}
+      ]
+    },
+    {
+      "id": "ciso", "role": "CISO", "title": "Chief Information Security Officer", "reportsTo": "ceo",
+      "status": "idle", "autonomy": "delegated", "budgetCents": 1500, "spentCents": 85,
+      "currentFocus": "Security review OpenWA/GDPR per canale WhatsApp",
+      "latestRun": { "id": "0d6ee4bb", "status": "succeeded", "trigger": "mention", "agoText": "6h fa",
+        "message": "Review OpenWA in corso: input non fidato + PII. Raccomando preset low-trust + sandbox." },
+      "charts": {
+        "runActivity": [ {"d":"6/19","ok":1,"fail":0},{"d":"6/20","ok":1,"fail":0},{"d":"6/21","ok":1,"fail":0},{"d":"6/22","ok":2,"fail":0},{"d":"6/23","ok":1,"fail":0},{"d":"6/24","ok":1,"fail":0},{"d":"6/25","ok":2,"fail":0},{"d":"6/26","ok":1,"fail":0},{"d":"6/27","ok":2,"fail":0},{"d":"6/28","ok":1,"fail":0},{"d":"6/29","ok":1,"fail":0},{"d":"6/30","ok":2,"fail":0},{"d":"7/1","ok":1,"fail":0},{"d":"7/2","ok":1,"fail":0} ],
+        "priority": { "critical": 1, "high": 2, "medium": 1, "low": 1 },
+        "status": { "done": 3, "in_progress": 1, "in_review": 1, "blocked": 0 },
+        "successRate": [ {"d":"6/19","ok":100},{"d":"6/20","ok":100},{"d":"6/21","ok":100},{"d":"6/22","ok":100},{"d":"6/23","ok":100},{"d":"6/24","ok":100},{"d":"6/25","ok":100},{"d":"6/26","ok":100},{"d":"6/27","ok":100},{"d":"6/28","ok":100},{"d":"6/29","ok":100},{"d":"6/30","ok":100},{"d":"7/1","ok":100},{"d":"7/2","ok":100} ]
+      },
+      "recentIssues": [
+        {"key":"SEC-22","title":"Review OpenWA/GDPR canale WhatsApp","status":"in_progress"},
+        {"key":"SEC-19","title":"Containment input ostile clienti (low-trust)","status":"in_review"},
+        {"key":"SEC-14","title":"Audit baseline secrets: cifratura a riposo","status":"done"}
+      ]
+    }
+  ],
+  "companies": [
+    { "id": "herbalife", "name": "Herbalife", "status": "active", "priority": "high", "health": 72,
+      "description": "Piattaforma AI ecommerce + Cliente Privilegiato + downline",
+      "agents": [
+        {"name":"agent-distributor","port":8013,"status":"prd"},
+        {"name":"agent-preferred-customer","port":8014,"status":"prd"},
+        {"name":"agent-ecommerce","port":8015,"status":"dev"},
+        {"name":"concierge","port":8000,"status":"prd"},
+        {"name":"drive-indexer","port":8030,"status":"prd"},
+        {"name":"analytics","port":8040,"status":"prd"}
+      ] },
+    { "id": "ai-triage", "name": "ai-triage", "status": "mvp", "priority": "low", "health": 45,
+      "description": "MVP triage AI con STT/TTS per customer care voce", "agents": [] },
+    { "id": "ai-friday", "name": "AI Friday", "status": "active", "priority": "medium", "health": 60,
+      "description": "Assistente personale, repo dedicato", "agents": [] },
+    { "id": "omar-website", "name": "Omar Website", "status": "active", "priority": "medium", "health": 65,
+      "description": "Sito personale / vetrina", "agents": [] },
+    { "id": "docbit", "name": "Docbit", "status": "planned", "priority": "tbd", "health": null,
+      "description": "In arrivo — da onboardare", "agents": [] }
+  ],
+  "platform": [
+    { "name": "chatbot-base", "owner": "CTO", "status": "partial" },
+    { "name": "marketing-engine", "owner": "CMO+CTO", "status": "planned" },
+    { "name": "analytics", "owner": "COO+CFO", "status": "planned" },
+    { "name": "security", "owner": "CISO+CTO", "status": "planned" }
+  ]
+}
