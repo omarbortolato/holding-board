@@ -111,3 +111,4 @@ Omar (CEO)
 - Template email: da creare in `platform/marketing/email/`
 - Content calendar: da creare in `platform/marketing/calendar/`
 - Best practice SEO: da creare in `platform/marketing/seo/`
+- Video agent (Remotion): `platform/marketing/video/` — promo data-driven per ads/landing page + montaggio semplice di footage esistente. I Marketing Manager di progetto lo usano tramite la skill Claude Code `video-agent`. Attivo in locale su Hetzner (poca RAM libera, valutare server dedicato se l'uso cresce — vedi `video/README.md`)

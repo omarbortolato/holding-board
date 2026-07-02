@@ -21,6 +21,7 @@ La piattaforma stessa è il prodotto vendibile B2B del futuro.
 | Content writer | CMO | 🔵 PLANNED | Blog, landing page, product descriptions |
 | Email manager | CMO | 🔵 PLANNED | Brevo + Mautic, automation, newsletter |
 | Social media | CMO | 🔵 PLANNED | Scheduling, caption generation |
+| Video agent | CMO + CTO | 🟢 ATTIVO (locale) | Remotion in `video/` — promo data-driven (ads/landing page) + montaggio semplice di footage esistente. Skill Claude Code: `video-agent`. Renderizza in locale su questo Hetzner: RAM libera scarsa, da valutare server dedicato se l'uso cresce (vedi nota in `video/README.md`) |
 | Ads optimizer | CMO + CFO | 🔵 PLANNED | Google Ads, budget optimization |
 | Scraper notizie | CTO | 🔵 PLANNED | Feed RSS, competitor monitoring |
 | Analytics reporter | COO + CFO | 🔵 PLANNED | Report periodici marketing KPI |
@@ -36,6 +37,7 @@ platform/marketing/
 ├── seo/            — keyword strategy, content brief template
 ├── calendar/       — content calendar template
 ├── agents/         — codice agenti marketing
+├── video/          — motore video Remotion (ATTIVO), vedi video/README.md
 └── config/         — configurazione per progetto
     ├── herbalife.yaml
     ├── ai-triage.yaml
